@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Controller from "./components/preview/Controller";
+
+/* css plugins */
+// import "./components/preview/assets/css/style.css";
+import './components/preview/assest/css/style.css';
+// import "./components/preview/asset/css/responsive.css";
+import './components/preview/assest/css/responsive.css';
+// import "./components/preview/asset/css/plugins/bootstrap.min.css";
+import './components/preview/assest/css/plugins/bootstrap.min.css';
+// import "./components/preview/asset/fonts/font-awesome.min.css";
+import './components/preview/assest/fonts/font-awesome.min.css';
+// import "./components/preview/asset/fonts/bs-icons/bootstrap-icons.css";
+import './components/preview/assest/fonts/bs-icons/bootstrap-icons.css';
+// import "./components/preview/asset/css/plugins/slick.css";
+import './components/preview/assest/css/plugins/slick.css';
+// import "./components/preview/asset/css/plugins/nice-select.css";
+import './components/preview/assest/css/plugins/nice-select.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+import toast, { Toaster } from 'react-hot-toast';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Controller />
+      <Toaster />
+    </>
   );
 }
 
