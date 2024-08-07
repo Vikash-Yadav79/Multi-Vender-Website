@@ -1,13 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
-/* contact image */
-// import contact from "./assets/images/contact/contact_image.jpg";
-import contact from './assest/images/contact/contact_image.jpg'
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
+import contact from './assest/images/contact/contact_image.jpg';
 
-function Contact() {
+const Contact = () => {
+  // Validation schema using Yup
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .matches(/^[A-Za-z\s]+$/, "Name should only contain letters")
+      .required("Full Name is required"),
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("Email is required"),
+    phone: Yup.string()
+      .matches(/^\d{10}$/, "Phone No. must be exactly 10 digits")
+      .required("Phone No. is required"),
+    subject: Yup.string().required("Subject is required"),
+    msg: Yup.string().required("Message is required"),
+  });
+
+  // Function to handle form submission
+  const handleSubmit = (values, { setSubmitting, resetForm }) => {
+    axios.post("http://localhost:8000/contact.php", values)
+      .then(response => {
+        console.log(response.data);
+        alert("Message sent successfully!");
+        resetForm();
+      })
+      .catch(error => {
+        console.error("There was an error sending the message!", error);
+        alert("There was an error sending your message.");
+      })
+      .finally(() => {
+        setSubmitting(false);
+      });
+  };
+
   return (
     <>
-      {/*     <!-- Subheader Start --> */}
       <div className="section-bg section-padding subheader">
         <div className="container">
           <div className="row">
@@ -27,150 +59,115 @@ function Contact() {
           </div>
         </div>
       </div>
-      {/*  <!-- Subheader End -->
-    <!-- Section Start --> */}
+
       <section className="section-padding">
         <div className="container">
           <div className="row justify-content-center">
-            {/*<!-- item -->*/}
-            <div className="col-lg-4 col-md-6">
-              <div className="contact_info_box section-bg firstBg">
-                <div className="icon">
-                  <i className="fal fa-map-marker-alt"></i>
-                </div>
-                <p className="text">
-                  13th Street. 47 W 13th St, New York, 10011, USA
-                </p>
-              </div>
-            </div>
-            {/*<!-- item -->*/}
-            <div className="col-lg-4 col-md-6">
-              <div className="contact_info_box section-bg secondBg">
-                <div className="icon">
-                  <i className="fal fa-phone"></i>
-                </div>
-                <Link to="tel:(+347)1234567890" className="text">
-                  (+347) 123 4567 890
-                </Link>
-                <p className="text">Mon-Sat 9:00am-5:00pm</p>
-              </div>
-            </div>
-            {/*<!-- item -->*/}
-            <div className="col-lg-4 col-md-6">
-              <div className="contact_info_box section-bg thirdBg">
-                <div className="icon">
-                  <i className="fal fa-envelope"></i>
-                </div>
-                <Link to="mailto:example@example.com" className="text">
-                  example@example.com
-                </Link>
-                <p className="text">24 X 7 online support</p>
-              </div>
-            </div>
-            {/*<!-- item -->*/}
-          </div>
-        </div>
-      </section>
-      {/* <!-- Section End -->
-    <!-- Section Start --> */}
-      <section className="section-padding pt-0">
-        <div className="container">
-          <div className="row g-0">
             <div className="col-lg-8">
               <div className="contact_form">
-                <form action="http://localhost:8000/contact.php" method="POST">
-                  <div className="section-header text-start">
-                    <h3 className="title">
-                      Get In <span>Touch</span>
-                    </h3>
-                    <p className="text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
-                    </p>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <input
-                          type="text"
-                          name="name"
-                          className="form-control form-control-custom"
-                          placeholder="Full Name"
-                          autoComplete="off"
-                          required=""
-                        />
+                <Formik
+                  initialValues={{
+                    name: "",
+                    email: "",
+                    phone: "",
+                    subject: "",
+                    msg: "",
+                  }}
+                  validationSchema={validationSchema}
+                  onSubmit={handleSubmit}
+                >
+                  {({ isSubmitting }) => (
+                    <Form>
+                      <div className="section-header text-start">
+                        <h3 className="title">
+                          Get In <span>Touch</span>
+                        </h3>
+                        <p className="text">
+                          We’d love to hear from you! Whether you have a question, feedback, or need assistance, feel free to reach out.
+                        </p>
                       </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <input
-                          type="email"
-                          name="email"
-                          className="form-control form-control-custom"
-                          placeholder="Email I'd"
-                          autoComplete="off"
-                          required=""
-                        />
+                      <div className="row">
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <Field
+                              type="text"
+                              name="name"
+                              className="form-control form-control-custom"
+                              placeholder="Full Name"
+                              autoComplete="off"
+                            />
+                            <ErrorMessage name="name" component="div" className="text-danger" />
+                          </div>
+                        </div>
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <Field
+                              type="email"
+                              name="email"
+                              className="form-control form-control-custom"
+                              placeholder="Email ID"
+                              autoComplete="off"
+                            />
+                            <ErrorMessage name="email" component="div" className="text-danger" />
+                          </div>
+                        </div>
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <Field
+                              type="text"
+                              name="phone"
+                              className="form-control form-control-custom"
+                              placeholder="Phone No."
+                              autoComplete="off"
+                            />
+                            <ErrorMessage name="phone" component="div" className="text-danger" />
+                          </div>
+                        </div>
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <Field
+                              type="text"
+                              name="subject"
+                              className="form-control form-control-custom"
+                              placeholder="Subject"
+                              autoComplete="off"
+                            />
+                            <ErrorMessage name="subject" component="div" className="text-danger" />
+                          </div>
+                        </div>
+                        <div className="col-md-12">
+                          <div className="form-group">
+                            <Field
+                              as="textarea"
+                              rows="5"
+                              name="msg"
+                              className="form-control form-control-custom"
+                              placeholder="Message"
+                              autoComplete="off"
+                            />
+                            <ErrorMessage name="msg" component="div" className="text-danger" />
+                          </div>
+                        </div>
+                        <div className="col-md-12">
+                          <button type="submit" className="thm-btn w-100" disabled={isSubmitting}>
+                            Submit
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <input
-                          type="text"
-                          name="phone"
-                          className="form-control form-control-custom"
-                          placeholder="Phone No."
-                          autoComplete="off"
-                          required=""
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <input
-                          type="text"
-                          name="subject"
-                          className="form-control form-control-custom"
-                          placeholder="Subject"
-                          autoComplete="off"
-                          required=""
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="form-group">
-                        <textarea
-                          rows="5"
-                          name="msg"
-                          className="form-control form-control-custom"
-                          placeholder="Message"
-                          autoComplete="off"
-                          required=""
-                        ></textarea>
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <button type="submit" className="thm-btn w-100">
-                        Submit
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                    </Form>
+                  )}
+                </Formik>
               </div>
             </div>
             <div className="col-lg-4">
               <div className="contact_image">
-                <img
-                  src={contact}
-                  alt="img"
-                  className="image-fit"
-                />
+                <img src={contact} alt="img" className="image-fit" />
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/*     <!-- Section End -->
-    <!-- Newsletter Start --> */}
+
       <section className="newsletter_box down">
         <div className="container">
           <div className="section section-bg no-overlay">
@@ -179,7 +176,7 @@ function Contact() {
                 Our <span>Newsletter</span>
               </h3>
               <p className="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+                Stay updated with our latest news and offers.
               </p>
             </div>
             <div className="row justify-content-center">
@@ -204,7 +201,6 @@ function Contact() {
           </div>
         </div>
       </section>
-      {/*  <!-- Newsletter End --> */}
     </>
   );
 }

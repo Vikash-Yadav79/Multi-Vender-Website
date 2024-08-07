@@ -1,6 +1,5 @@
 
 import React from "react";
-// import logo from "./assest/images/simpexLogo.jpg";
 import logo from './assest/images/simpexLogo.jpg';
 import { Link } from "react-router-dom";
 
@@ -68,9 +67,9 @@ function Footer() {
                   <li>
                     <Link to="/blog_grid">Blog</Link>
                   </li>
-                  <li>
-                    <Link to="/listing_grid">Listings</Link>
-                  </li>
+                  {/* <li>
+                    <Link to="/Listing_Grid">Listings</Link>
+                  </li> */}
                   <li>
                     <Link to="#">FAQ's</Link>
                   </li>
@@ -89,22 +88,22 @@ function Footer() {
                 <h5 className="ft_title">Company</h5>
                 <ul className="ft_menu">
                   <li>
-                    <Link to="/listing_grid">Shopping</Link>
+                    <Link to="/hotel">Shopping</Link>
                   </li>
                   <li>
-                    <Link to="/listing_grid">Beauty</Link>
+                    <Link to="/Listing_Grid">Beauty</Link>
                   </li>
                   <li>
-                    <Link to="/listing_grid">Fitness</Link>
+                    <Link to="/Listing_Grid_Right">Fitness</Link>
                   </li>
                   <li>
-                    <Link to="/listing_grid">Food</Link>
+                    <Link to="/Listing_Grid_Left">Food</Link>
                   </li>
                   <li>
-                    <Link to="/listing_grid">Hotels</Link>
+                    <Link to="/hotel">Hotels</Link>
                   </li>
                   <li>
-                    <Link to="/listing_grid">Travelling</Link>
+                    <Link to="/Listing_Grid">Travelling</Link>
                   </li>
                 </ul>
               </div>
@@ -120,20 +119,20 @@ function Footer() {
                   <li>
                     <Link to="#">
                       <i className="fas fa-phone-volume"></i>
-                      (+347) 123 456 7890
+                      +91 9686391081
                     </Link>
                   </li>
                   <li>
                     <Link to="#">
                       <i className="fas fa-envelope"></i>
-                      example@example.com
+                      amanyarasoftech@gmail.com
                     </Link>
                   </li>
 
                   <li>
                     <Link to="#">
                       <i className="fas fa-map-marker-alt"></i>
-                      Street, 3821 Ben Street. NY 14424
+                      SA 13/46 KM,ASHOKA ENCLAVE,KHAJUHI SARNATH, Varanasi, India
                     </Link>
                   </li>
                 </ul>
@@ -154,7 +153,7 @@ function Footer() {
                 <p className="mb-0">
                   Copyright ©{" "}
                   <Link to="#" className="text-white fw-500">
-                    www.example.com
+                  amanyarasoftech@gmail.com
                   </Link>{" "}
                   <span id="year">2022</span>. All Right Reserved
                 </p>

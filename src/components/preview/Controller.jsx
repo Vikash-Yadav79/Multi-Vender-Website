@@ -16,6 +16,7 @@ import Services from "./Services";
 import Register from "./Register";
 import Login from "./Login";
 import Contact from "./Contact";
+import ForgotPassword from "./ForgotPassword";
 
 /* explore section images */
 import exploreImg1 from "./assest/images/explore/carpenter.png";
@@ -67,6 +68,8 @@ import galleryImg4 from "./assest/images/gallery/4.jpg";
 import galleryImg5 from "./assest/images/gallery/5.jpg";
 import galleryImg6 from "./assest/images/gallery/6.jpg";
 import Privacy_Policy from "./Privacy_Policy";
+import ShoppingPage from "../ShoppingPage";
+
 
 
 
@@ -78,7 +81,7 @@ function Controller() {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed:2000,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 1024,
@@ -113,7 +116,7 @@ function Controller() {
     slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed:2000,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 1024,
@@ -146,7 +149,7 @@ function Controller() {
       <Router>
         <Header />
         <Routes>
-        
+
           <Route
             path="/"
             element={
@@ -176,7 +179,7 @@ function Controller() {
             }
           />
           <Route
-            path="/home" 
+            path="/home"
             element={
               <Home
                 exploreImages={{
@@ -225,8 +228,9 @@ function Controller() {
             }
           />
           <Route
-            path="/listing_grid"
+            path="/hotel"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Listing_Grid
                 listingImages={{
                   listingImg1,
@@ -245,6 +249,7 @@ function Controller() {
           <Route
             path="/listing_grid_left"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Listing_Grid_Left
                 listingImages={{
                   listingImg1,
@@ -260,6 +265,7 @@ function Controller() {
           <Route
             path="/listing_grid_right"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Listing_Grid_Right
                 listingImages={{
                   listingImg1,
@@ -275,6 +281,7 @@ function Controller() {
           <Route
             path="/listing_details"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Listing_Details
                 listingImages={{
                   listingImg1,
@@ -297,6 +304,7 @@ function Controller() {
           <Route
             path="/blog_grid"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Blog_Grid
                 blogImages={{
                   blogImg1,
@@ -315,6 +323,7 @@ function Controller() {
           <Route
             path="/blog_grid_left"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Blog_Grid_Left
                 blogImages={{
                   blogImg1,
@@ -330,6 +339,7 @@ function Controller() {
           <Route
             path="/blog_grid_right"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Blog_Grid_Right
                 blogImages={{
                   blogImg1,
@@ -345,6 +355,7 @@ function Controller() {
           <Route
             path="/blog_details"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Blog_Details
                 blogImages={{
                   blogImg1,
@@ -359,6 +370,7 @@ function Controller() {
           />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/Forgot" element={<ForgotPassword />} />
           <Route
             path="/services"
             element={
@@ -370,10 +382,11 @@ function Controller() {
           />
           <Route
             path="/contact"
-            element={<Contact/>}
+            element={<Contact />}
           />
-          <Route path="/listing" element={<Contact/>}/>
-          <Route path="/privacy_policy" element={<Privacy_Policy/>}/>
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/shopping" element={<ShoppingPage />} />
+          <Route path="/privacy_policy" element={<Privacy_Policy />} />
         </Routes>
         <Footer />
       </Router>

@@ -8,96 +8,96 @@ import "slick-carousel/slick/slick-theme.css"
 
 function Home(props) {
 
-  const [exploreImages,SetExploreImages]=useState([
+  const [exploreImages, SetExploreImages] = useState([
     {
-      img:props.exploreImages.exploreImg1,
-      label:"Carpenter"
+      img: props.exploreImages.exploreImg1,
+      label: "Carpenter"
     },
     {
-      img:props.exploreImages.exploreImg2,
-      label:"Plumber"
+      img: props.exploreImages.exploreImg2,
+      label: "Plumber"
     },
     {
-      img:props.exploreImages.exploreImg3,
-      label:"Accountant"
+      img: props.exploreImages.exploreImg3,
+      label: "Accountant"
     },
     {
-      img:props.exploreImages.exploreImg4,
-      label:"Doctor"
+      img: props.exploreImages.exploreImg4,
+      label: "Doctor"
     },
     {
-      img:props.exploreImages.exploreImg5,
-      label:"Mechanic"
+      img: props.exploreImages.exploreImg5,
+      label: "Mechanic"
     },
   ])
-  const [servicesImg,SetServicesImages]=useState([
+  const [servicesImg, SetServicesImages] = useState([
     {
-      img:props.exploreImages.exploreImg1,
-      label:"Carpenter"
+      img: props.exploreImages.exploreImg1,
+      label: "Carpenter"
     },
     {
-      img:props.exploreImages.exploreImg2,
-      label:"Plumber"
+      img: props.exploreImages.exploreImg2,
+      label: "Plumber"
     },
     {
-      img:props.exploreImages.exploreImg3,
-      label:"Accountant"
+      img: props.exploreImages.exploreImg3,
+      label: "Accountant"
     },
     {
-      img:props.exploreImages.exploreImg4,
-      label:"Doctor"
+      img: props.exploreImages.exploreImg4,
+      label: "Doctor"
     },
-   
+
   ])
-  const [listingImg,SetListingImages]=useState([
+  const [listingImg, SetListingImages] = useState([
     {
-      img:props.exploreImages.exploreImg1,
-      label:"Carpenter"
+      img: props.exploreImages.exploreImg1,
+      label: "Carpenter"
     },
     {
-      img:props.exploreImages.exploreImg2,
-      label:"Plumber"
+      img: props.exploreImages.exploreImg2,
+      label: "Plumber"
     },
     {
-      img:props.exploreImages.exploreImg3,
-      label:"Plumber"
+      img: props.exploreImages.exploreImg3,
+      label: "Plumber"
     },
-    
+
     {
-      img:props.exploreImages.exploreImg4,
-      label:"Doctor"
-    },
-    {
-      img:props.exploreImages.exploreImg1,
-      label:"Carpenter"
+      img: props.exploreImages.exploreImg4,
+      label: "Doctor"
     },
     {
-      img:props.exploreImages.exploreImg2,
-      label:"Plumber"
+      img: props.exploreImages.exploreImg1,
+      label: "Carpenter"
     },
     {
-      img:props.exploreImages.exploreImg3,
-      label:"Plumber"
-    },
-    
-    {
-      img:props.exploreImages.exploreImg4,
-      label:"Doctor"
+      img: props.exploreImages.exploreImg2,
+      label: "Plumber"
     },
     {
-      img:props.exploreImages.exploreImg1,
-      label:"Carpenter"
+      img: props.exploreImages.exploreImg3,
+      label: "Plumber"
     },
-   
+
+    {
+      img: props.exploreImages.exploreImg4,
+      label: "Doctor"
+    },
+    {
+      img: props.exploreImages.exploreImg1,
+      label: "Carpenter"
+    },
+
   ])
-  const [testmonialImages,SetTestmonialImages]=useState([
+  const [testmonialImages, SetTestmonialImages] = useState([
     {
-      img:props.testimonialImages.testimonialImg1
+      img: props.testimonialImages.testimonialImg1
     },
     {
-      img:props.testimonialImages.testimonialImg2
+      img: props.testimonialImages.testimonialImg2
     },
-    
+
   ])
 
   return (
@@ -155,31 +155,31 @@ function Home(props) {
             </div>
             <form className="row justify-content-center banner_form g-2">
               {
-                exploreImages.map((items,index)=>{
-                  return(
+                exploreImages.map((items, index) => {
+                  return (
                     <>
-                    <div className="col-auto">
-                <div className="form-group form-radio">
-                  <input
-                    className="form-radio-input"
-                    type="radio"
-                    name="category"
-                    value="Hotels & Travels"
-                    id="radio_one"
-                  />
-                  <label className="form-radio-label" for="radio_one">
-                    <div>
-                      <img src={items.img} alt="" style={{height:"100px"}}/>
-                      <p className="mb-0 py-1">{items.label}</p>
-                    </div>
-                  </label>
-                </div>
-              </div>
+                      <div className="col-auto">
+                        <div className="form-group form-radio">
+                          <input
+                            className="form-radio-input"
+                            type="radio"
+                            name="category"
+                            value="Hotels & Travels"
+                            id="radio_one"
+                          />
+                          <label className="form-radio-label" for="radio_one">
+                            <div>
+                              <img src={items.img} alt="" style={{ height: "100px" }} />
+                              <p className="mb-0 py-1">{items.label}</p>
+                            </div>
+                          </label>
+                        </div>
+                      </div>
                     </>
                   )
                 })
               }
-            
+
             </form>
           </div>
         </div>
@@ -198,48 +198,48 @@ function Home(props) {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
             </p>
           </div>
-         
-          <div className="row explore_slider">
-            
-            {/*<!-- item -->*/}
-           
-           <Slider {...props.sliderSetting.exploreImagesSettings}>
-           {
-              exploreImages.map((items)=>{
-                return (<div className="px-2 slide_item">
-                  <div className="explore_box">
-                    <div className="explore_image">
-                      <Link to="/Explore" className="d-flex h-100">
-                        <img
-                          src={items.img}
-                          alt="img"
-                          className="image-fit"
-                        />
-                      </Link>
-                    </div>
-                    <div className="explore_text">
-                      <div className="rating">
-                        <i className="bi-star-fill"></i>
-                        <i className="bi-star-fill"></i>
-                        <i className="bi-star-fill"></i>
-                        <i className="bi-star-fill"></i>
-                        <i className="bi-star"></i>
-                      </div>
-                      <h5 className="title">
-                        <Link to="/Explore">{items.label}</Link>
-                      </h5>
-                    </div>
-                    
-                  </div>
-                </div>)
-              })
 
-            }
-           </Slider>
-         
+          <div className="row explore_slider">
+
+            {/*<!-- item -->*/}
+
+            <Slider {...props.sliderSetting.exploreImagesSettings}>
+              {
+                exploreImages.map((items) => {
+                  return (<div className="px-2 slide_item">
+                    <div className="explore_box">
+                      <div className="explore_image">
+                        <Link to="/Explore" className="d-flex h-100">
+                          <img
+                            src={items.img}
+                            alt="img"
+                            className="image-fit"
+                          />
+                        </Link>
+                      </div>
+                      <div className="explore_text">
+                        <div className="rating">
+                          <i className="bi-star-fill"></i>
+                          <i className="bi-star-fill"></i>
+                          <i className="bi-star-fill"></i>
+                          <i className="bi-star-fill"></i>
+                          <i className="bi-star"></i>
+                        </div>
+                        <h5 className="title">
+                          <Link to="/Explore">{items.label}</Link>
+                        </h5>
+                      </div>
+
+                    </div>
+                  </div>)
+                })
+
+              }
+            </Slider>
+
             {/*<!-- item -->*/}
           </div>
-        
+
         </div>
       </section>
       {/* <!-- Explore End --> */}
@@ -257,26 +257,26 @@ function Home(props) {
           <div className="row">
             {/*<!-- item -->*/}
             {
-              servicesImg.map((items,index)=>{
-                return(
+              servicesImg.map((items, index) => {
+                return (
                   <>
-                  <div className="col-lg-3 col-sm-6">
-              <div className="service_box">
-                <div className="icon">
-                  <img src={items.img} alt="" />
-                </div>
-                <h5 className="title">
-                  <Link to="/services">{items.label}</Link>
-                </h5>
-                
-              </div>
-            </div>
+                    <div className="col-lg-3 col-sm-6">
+                      <div className="service_box">
+                        <div className="icon">
+                          <img src={items.img} alt="" />
+                        </div>
+                        <h5 className="title">
+                          <Link to="/services">{items.label}</Link>
+                        </h5>
+
+                      </div>
+                    </div>
                   </>
                 )
               })
             }
-            
-         
+
+
           </div>
         </div>
       </section>
@@ -295,25 +295,25 @@ function Home(props) {
           <div className="row">
             {/*<!-- item -->*/}
             {
-              listingImg.map((items,index)=>{
-                return(
+              listingImg.map((items, index) => {
+                return (
                   <>
-                  <div className="col-lg-4 col-md-6">
-              <div className="listing_box">
-                <div className="listing_image">
-                  <Link to="/listing_details" className="d-flex h-100">
-                    <img
-                      src={items.img}
-                      alt="img"
-                      className="image-fit"
-                    />
-                  </Link>
-                </div>
-                <div className="listing_caption">
-                  <h4 className="title">
-                    <Link to="/listing_details">{items.label}</Link>
-                  </h4>
-                  {/* <ul className="listing_meta">
+                    <div className="col-lg-4 col-md-6">
+                      <div className="listing_box">
+                        <div className="listing_image">
+                          <Link to="/listing_details" className="d-flex h-100">
+                            <img
+                              src={items.img}
+                              alt="img"
+                              className="image-fit"
+                            />
+                          </Link>
+                        </div>
+                        <div className="listing_caption">
+                          <h4 className="title">
+                            <Link to="/listing_details">{items.label}</Link>
+                          </h4>
+                          {/* <ul className="listing_meta">
                     <li>
                       <i className="fas fa-map-marker-alt"></i>
                       Popular restaurant in London
@@ -327,31 +327,31 @@ function Home(props) {
                       10 Jan 2022
                     </li>
                   </ul> */}
-                </div>
-                <div className="listing_footer">
-                 {/*  <div className="action_btn">
+                        </div>
+                        <div className="listing_footer">
+                          {/*  <div className="action_btn">
                     <button type="button" className="listing_btn">
                       <i className="bi-cart3 icon"></i>
                       Shopping
                     </button>
                   </div> */}
-                  <div className="rating style_two">
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
+                          <div className="rating style_two">
+                            <i className="bi-star-fill"></i>
+                            <i className="bi-star-fill"></i>
+                            <i className="bi-star-fill"></i>
+                            <i className="bi-star-fill"></i>
+                            <i className="bi-star"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </>
                 )
               })
             }
-           
-            
-            
+
+
+
           </div>
         </div>
       </section>
@@ -386,7 +386,7 @@ function Home(props) {
             <div className="col-lg-4 col-md-6">
               <div className="hw_it_works_box">
                 <div className="icon">
-                <i class="fas fa-user-cog"></i>
+                  <i class="fas fa-user-cog"></i>
                 </div>
                 <div className="text">
                   <h6 className="title mb-1">Choose Services</h6>
@@ -427,38 +427,38 @@ function Home(props) {
             </p>
           </div>
           <div className="row testimonial_slider">
-           
+
             {/*<!-- item -->*/}
             <Slider {...props.sliderSetting.testmonialImagesSetting}>
               {
-                testmonialImages.map((items)=>{
-                  return(
+                testmonialImages.map((items) => {
+                  return (
                     <div className="px-3 slide_item">
-                    <div className="testimonial_item">
-                      <div className="author_image">
-                        <img
-                          src={items.img}
-                          alt="img"
-                          className="image-fit"
-                        />
-                      </div>
-                      <div className="testimonial_text">
-                        <p className="comment">
-                          His room, a proper human room although a little too small,
-                          lay peacefully between its four familiar walls. One
-                          morning,...{" "}
-                        </p>
-                        <div className="author_info">
-                          <h6 className="name mb-0">Williams Son</h6>
-                          <p>New York City</p>
+                      <div className="testimonial_item">
+                        <div className="author_image">
+                          <img
+                            src={items.img}
+                            alt="img"
+                            className="image-fit"
+                          />
+                        </div>
+                        <div className="testimonial_text">
+                          <p className="comment">
+                            His room, a proper human room although a little too small,
+                            lay peacefully between its four familiar walls. One
+                            morning,...{" "}
+                          </p>
+                          <div className="author_info">
+                            <h6 className="name mb-0">Williams Son</h6>
+                            <p>New York City</p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                   )
                 })
               }
-           
+
             </Slider>
             {/*<!-- item -->*/}
           </div>

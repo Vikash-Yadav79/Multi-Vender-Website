@@ -5,16 +5,16 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
 function Services(props) {
-  const [testmonialImages,SetTestmonialImages]=useState([
+  const [testmonialImages, SetTestmonialImages] = useState([
     {
-      img:props.testimonialImages.testimonialImg1
+      img: props.testimonialImages.testimonialImg1
     },
     {
-      img:props.testimonialImages.testimonialImg2
+      img: props.testimonialImages.testimonialImg2
     },
-    
+
   ])
-  
+
   return (
     <>
       {/*    <!-- Subheader Start --> */}
@@ -174,41 +174,41 @@ function Services(props) {
               What Clients <span>say</span>
             </h3>
             <p className="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+              Our clients have shared their positive experiences working with us. Here are some of their testimonials:
             </p>
           </div>
           <div className="row testimonial_slider">
             {/*<!-- item -->*/}
             <Slider {...props.sliderSetting}>
               {
-                testmonialImages.map((items)=>{
-                  return(
+                testmonialImages.map((items) => {
+                  return (
                     <div className="px-3 slide_item">
-                    <div className="testimonial_item">
-                      <div className="author_image">
-                        <img
-                          src={items.img}
-                          alt="img"
-                          className="image-fit"
-                        />
-                      </div>
-                      <div className="testimonial_text">
-                        <p className="comment">
-                          His room, a proper human room although a little too small,
-                          lay peacefully between its four familiar walls. One
-                          morning,...{" "}
-                        </p>
-                        <div className="author_info">
-                          <h6 className="name mb-0">Williams Son</h6>
-                          <p>New York City</p>
+                      <div className="testimonial_item">
+                        <div className="author_image">
+                          <img
+                            src={items.img}
+                            alt="img"
+                            className="image-fit"
+                          />
+                        </div>
+                        <div className="testimonial_text">
+                          <p className="comment">
+                            His room, a proper human room although a little too small,
+                            lay peacefully between its four familiar walls. One
+                            morning,...{" "}
+                          </p>
+                          <div className="author_info">
+                            <h6 className="name mb-0">Williams Son</h6>
+                            <p>New York City</p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                   )
                 })
               }
-           
+
             </Slider>
             {/*<!-- item -->*/}
           </div>
@@ -224,7 +224,7 @@ function Services(props) {
                 Our <span>Newsletter</span>
               </h3>
               <p className="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+                Subscribe to our newsletter to get the latest updates, promotions, and insights delivered directly to your inbox. Don’t miss out on exclusive content and offers!
               </p>
             </div>
             <div className="row justify-content-center">

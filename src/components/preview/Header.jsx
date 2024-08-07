@@ -362,8 +362,8 @@ function Navbar() {
       toast.success("List Added Successfully...");
       handleClose();
     } */
-      toast.success("List Added Successfully...");
-      handleClose();
+    toast.success("List Added Successfully...");
+    handleClose();
 
   };
   return (
@@ -375,7 +375,7 @@ function Navbar() {
             {/* <!-- logo --> */}
             <div className="logo">
               <Link to="/" className="d-flex h-100">
-                <img src={logo} alt="logo" className="image-fit-contain"/>
+                <img src={logo} alt="logo" className="image-fit-contain" />
                 <img src={logo_two} alt="logo" className="image-fit-contain" />
               </Link>
             </div>
@@ -393,8 +393,11 @@ function Navbar() {
                   <li className="menu-item">
                     <Link to="/explore">Explore</Link>
                   </li>
-                  <li className="menu-item menu-item-has-children">
-                    <Link to="#">Listings</Link>
+                  {/* <li className="menu-item">
+                    <Link to="/explore">Categories</Link>
+                  </li> */}
+                  {/* <li className="menu-item menu-item-has-children">
+                    <Link to="#">Categeries</Link>
                     <ul className="sub-menu">
                       <li className="menu-item menu-item-has-children">
                         <Link to="#">Listing Grid</Link>
@@ -414,10 +417,10 @@ function Navbar() {
                         <Link to="/listing_details">Listing Details</Link>
                       </li>
                     </ul>
-                  </li>
-                  <li className="menu-item menu-item-has-children">
-                    <Link to="#">Blog</Link>
-                    <ul className="sub-menu">
+                  </li> */}
+                  <li className="menu-item ">
+                    <Link to="/blog_details">Blog</Link>
+                    {/* <ul className="sub-menu">
                       <li className="menu-item menu-item-has-children">
                         <Link to="#">Blog Grid</Link>
                         <ul className="sub-menu">
@@ -435,20 +438,20 @@ function Navbar() {
                       <li className="menu-item">
                         <Link to="/blog_details">Blog Details</Link>
                       </li>
-                    </ul>
+                    </ul> */}
                   </li>
                   <li className="menu-item menu-item-has-children">
-                    <Link to="#">Pages</Link>
+                    <Link to="#">Services</Link>
                     <ul className="sub-menu">
                       <li className="menu-item">
-                        <Link to="/services">Services</Link>
+                        <Link to="/services"> All Services</Link>
                       </li>
-                      <li className="menu-item">
+                      {/* <li className="menu-item">
                         <Link to="/login">Login</Link>
                       </li>
                       <li className="menu-item">
                         <Link to="/register">SignUp</Link>
-                      </li>
+                      </li> */}
                     </ul>
                   </li>
                   <li className="menu-item">
