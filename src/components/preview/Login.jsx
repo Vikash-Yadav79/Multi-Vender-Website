@@ -1,10 +1,67 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Api from "../Api";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const validate = () => {
+    let errors = {};
+    let isValid = true;
+
+    if (!email) {
+      isValid = false;
+      errors["email"] = "Please enter your email.";
+    } else if (typeof email !== "undefined") {
+      const pattern = new RegExp(
+        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+      );
+      if (!pattern.test(email)) {
+        isValid = false;
+        errors["email"] = "Please enter valid email.";
+      }
+    }
+
+    if (!password) {
+      isValid = false;
+      errors["password"] = "Please enter your password.";
+    }
+
+    setErrors(errors);
+    return isValid;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (validate()) {
+      setLoading(true);
+
+      try {
+        const response = await Api.post("https://api.example.com/login", {
+          email,
+          password,
+        });
+
+        if (response.data.success) {
+          navigate("/dashboard"); // Redirect to dashboard or desired page
+        } else {
+          alert(response.data.message);
+        }
+      } catch (error) {
+        console.error("There was an error logging in!", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
   return (
     <>
-      {/* <!-- Subheader Start --> */}
       <div className="section-bg section-padding subheader">
         <div className="container">
           <div className="row">
@@ -24,8 +81,7 @@ function Login() {
           </div>
         </div>
       </div>
-      {/*     <!-- Subheader End -->
-    <!-- Section Start --> */}
+
       <section className="section">
         <div className="container">
           <div className="row justify-content-center">
@@ -47,47 +103,44 @@ function Login() {
                   </div>
                 </div>
                 <span className="divider_text">Or Login with</span>
-                <form action="#" method="POST">
+                <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-12">
                       <div className="form-group">
                         <label>Email/username</label>
                         <input
                           type="email"
-                          name="#"
+                          name="email"
                           className="form-control form-control-custom"
                           placeholder="Email I'd"
-                          value="example@example.com"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
                           autoComplete="off"
-                          required=""
+                          required
                         />
+                        <div className="text-danger">{errors.email}</div>
                       </div>
                     </div>
                     <div className="col-12">
                       <div className="form-group">
                         <label>
                           Password{" "}
-                          <Link to="#" className="thm-color-one">
+                          <Link to="/forgot" className="thm-color-one">
                             Forgot Password?
                           </Link>
                         </label>
                         <input
                           type="password"
-                          name="#"
+                          name="password"
                           className="form-control form-control-custom"
                           id="password_value"
                           placeholder="password"
-                          value="password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
                           autoComplete="off"
-                          required=""
+                          required
                         />
-                        <button
-                          id="password_eye"
-                          className="fal fa-eye"
-                          type="button"
-                        >
-                          <span></span>
-                        </button>
+                        <div className="text-danger">{errors.password}</div>
                       </div>
                     </div>
                     <div className="col-12">
@@ -100,7 +153,7 @@ function Login() {
                           />
                           <label
                             className="form-check-label ms-2"
-                            for="radioValidation"
+                            htmlFor="radioValidation"
                           >
                             Remember me
                           </label>
@@ -108,8 +161,12 @@ function Login() {
                       </div>
                     </div>
                     <div className="col-12">
-                      <button type="submit" className="thm-btn w-100">
-                        Login
+                      <button
+                        type="submit"
+                        className="thm-btn w-100"
+                        disabled={loading}
+                      >
+                        {loading ? "Logging in..." : "Login"}
                       </button>
                       <p className="mt-3 mb-0 text-center fw-500">
                         Don't have an account?{" "}
@@ -125,8 +182,7 @@ function Login() {
           </div>
         </div>
       </section>
-      {/*   <!-- Section End -->
-    <!-- Newsletter Start --> */}
+
       <section className="newsletter_box down">
         <div className="container">
           <div className="section section-bg no-overlay">
@@ -160,7 +216,6 @@ function Login() {
           </div>
         </div>
       </section>
-      {/*    <!-- Newsletter End --> */}
     </>
   );
 }
