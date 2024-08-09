@@ -599,10 +599,10 @@ function Navbar() {
             </div>
 
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="secondary" className="text-light" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" className="text-light">
                 Add
               </Button>
             </Modal.Footer>

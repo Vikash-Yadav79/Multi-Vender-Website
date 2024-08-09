@@ -195,7 +195,7 @@ function Home(props) {
               Most Popular <span>Services</span>
             </h3>
             <p className="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+              Explore our top-rated services that clients love, from personalized workout plans.
             </p>
           </div>
 
@@ -251,7 +251,7 @@ function Home(props) {
               Best <span>services</span>
             </h3>
             <p className="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+              Explore our top-rated services that clients love.
             </p>
           </div>
           <div className="row">
@@ -289,7 +289,7 @@ function Home(props) {
               Popular <span>Services</span>
             </h3>
             <p className="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+              Explore our top-rated services that clients love.
             </p>
           </div>
           <div className="row">
@@ -364,7 +364,7 @@ function Home(props) {
               How it <span>Works</span>
             </h3>
             <p className="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+              Explore our top-rated services that clients love..
             </p>
           </div>
           <div className="row justify-content-center">
@@ -423,7 +423,7 @@ function Home(props) {
               What Clients <span>say</span>
             </h3>
             <p className="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+              We have done 80+ projects with 5/5 rating, some of the top clients are listed below
             </p>
           </div>
           <div className="row testimonial_slider">
@@ -473,7 +473,7 @@ function Home(props) {
               Latest <span>News</span>
             </h3>
             <p className="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+              Explore our top-rated News that clients love.
             </p>
           </div>
           <div className="row justify-content-center">
@@ -608,7 +608,7 @@ function Home(props) {
                 Our <span>Newsletter</span>
               </h3>
               <p className="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
+                Stay updated with the latest news, tips, and insights that our clients find valuable. Subscribe to never miss out on exclusive content!
               </p>
             </div>
             <div className="row justify-content-center">
