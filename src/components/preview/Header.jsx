@@ -375,7 +375,7 @@ function Navbar() {
             {/* <!-- logo --> */}
             <div className="logo">
               <Link to="/" className="d-flex h-100">
-                <img src={logo} alt="logo" className="image-fit-contain" />
+                {/* <img src={logo} alt="logo" className="image-fit-contain" /> */}
                 <img src={logo_two} alt="logo" className="image-fit-contain" />
               </Link>
             </div>
