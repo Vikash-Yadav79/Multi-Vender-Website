@@ -16,13 +16,11 @@ function Login() {
     if (!email) {
       isValid = false;
       errors["email"] = "Please enter your email.";
-    } else if (typeof email !== "undefined") {
-      const pattern = new RegExp(
-        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
-      );
+    } else {
+      const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
       if (!pattern.test(email)) {
         isValid = false;
-        errors["email"] = "Please enter valid email.";
+        errors["email"] = "Please enter a valid email.";
       }
     }
 
@@ -42,18 +40,20 @@ function Login() {
       setLoading(true);
 
       try {
-        const response = await Api.post("https://api.example.com/login", {
+        const response = await Api.post("/login-service-provider", {
           email,
           password,
         });
 
         if (response.data.success) {
-          navigate("/dashboard"); // Redirect to dashboard or desired page
+          console.log("Login successful, navigating to home page");
+          navigate("/explore");
         } else {
-          alert(response.data.message);
+          setErrors({ apiError: response.data.message });
         }
       } catch (error) {
         console.error("There was an error logging in!", error);
+        setErrors({ apiError: "An unexpected error occurred. Please try again." });
       } finally {
         setLoading(false);
       }
@@ -107,7 +107,7 @@ function Login() {
                   <div className="row">
                     <div className="col-12">
                       <div className="form-group">
-                        <label>Email/username</label>
+                        <label>Email</label>
                         <input
                           type="email"
                           name="email"
@@ -168,6 +168,9 @@ function Login() {
                       >
                         {loading ? "Logging in..." : "Login"}
                       </button>
+                      <div className="text-danger mt-3">
+                        {errors.apiError}
+                      </div>
                       <p className="mt-3 mb-0 text-center fw-500">
                         Don't have an account?{" "}
                         <Link to="/register" className="thm-color-one">

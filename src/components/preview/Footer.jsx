@@ -30,26 +30,26 @@ function Footer() {
                   </p>
                   <ul className="ft_social">
                     <li>
-                      <Link to="#">
+                      <Link to="https://www.facebook.com/amanyarasoftech" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-facebook-f"></i>
                       </Link>
                     </li>
                     <li>
-                      <Link to="#">
+                      <Link to="https://x.com/AmanyaSoftech" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-twitter"></i>
                       </Link>
                     </li>
                     <li>
-                      <Link to="#">
+                      <Link to="https://www.instagram.com/amanyarasoftech/" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-instagram"></i>
                       </Link>
                     </li>
                     <li>
-                      <Link to="#">
+                      <Link to="https://www.linkedin.com/company/amanya-softech/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-linkedin-in"></i>
                       </Link>
                     </li>
-                  </ul>
+                                  </ul>
                 </div>
               </div>
             </div>
@@ -153,7 +153,7 @@ function Footer() {
                 <p className="mb-0">
                   Copyright ©{" "}
                   <Link to="#" className="text-white fw-500">
-                  amanyarasoftech@gmail.com
+                    amanyarasoftech@gmail.com
                   </Link>{" "}
                   <span id="year">2022</span>. All Right Reserved
                 </p>

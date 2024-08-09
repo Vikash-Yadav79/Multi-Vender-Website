@@ -1,27 +1,36 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Api from "../Api";
+import Api from '../Api'
 
 function Register() {
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",
     email: "",
+    phone: "",
+    gender: "",
     password: "",
   });
+  console.log(formData);
 
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const validateForm = () => {
-    const { username, email, password } = formData;
+    const { name, email, phone, gender, password } = formData;
     const newErrors = {};
 
-    if (!username) newErrors.username = "Username is required";
+    if (!name) newErrors.name = "Name is required";
     if (!email) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = "Email address is invalid";
     }
+    if (!phone) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^\d{10}$/.test(phone)) {
+      newErrors.phone = "Phone number is invalid";
+    }
+    if (!gender) newErrors.gender = "Gender is required";
     if (!password) newErrors.password = "Password is required";
 
     return newErrors;
@@ -42,10 +51,8 @@ function Register() {
     }
 
     try {
-      // Assuming your base URL is already set up in Axios
-      const response = await Api.post("/api/register", formData);
+      const response = await Api.post("/create-service-provider", formData);
       console.log("Registration successful:", response.data);
-      // Redirect to login page or dashboard after successful registration
       navigate("/login");
     } catch (error) {
       console.error("Registration failed:", error);
@@ -85,18 +92,18 @@ function Register() {
                   <div className="row">
                     <div className="col-12">
                       <div className="form-group">
-                        <label>Username</label>
+                        <label>Name</label>
                         <input
                           type="text"
-                          name="username"
+                          name="name"
                           className="form-control form-control-custom"
-                          placeholder="Username"
-                          value={formData.username}
+                          placeholder="Name"
+                          value={formData.name}
                           onChange={handleChange}
                           required
                         />
-                        {errors.username && (
-                          <small className="text-danger">{errors.username}</small>
+                        {errors.name && (
+                          <small className="text-danger">{errors.name}</small>
                         )}
                       </div>
                     </div>
@@ -114,6 +121,43 @@ function Register() {
                         />
                         {errors.email && (
                           <small className="text-danger">{errors.email}</small>
+                        )}
+                      </div>
+                    </div>
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label>Phone</label>
+                        <input
+                          type="text"
+                          name="phone"
+                          className="form-control form-control-custom"
+                          placeholder="Phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          required
+                        />
+                        {errors.phone && (
+                          <small className="text-danger">{errors.phone}</small>
+                        )}
+                      </div>
+                    </div>
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label>Gender</label>
+                        <select
+                          name="gender"
+                          className="form-control form-control-custom"
+                          value={formData.gender}
+                          onChange={handleChange}
+                          required
+                        >
+                          <option value="">Select Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                          <option value="other">Other</option>
+                        </select>
+                        {errors.gender && (
+                          <small className="text-danger">{errors.gender}</small>
                         )}
                       </div>
                     </div>

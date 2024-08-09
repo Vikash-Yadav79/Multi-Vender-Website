@@ -375,7 +375,7 @@ function Navbar() {
             {/* <!-- logo --> */}
             <div className="logo">
               <Link to="/" className="d-flex h-100">
-                <img src={logo} alt="logo" className="image-fit-contain" />
+                {/* <img src={logo} alt="logo" className="image-fit-contain" /> */}
                 <img src={logo_two} alt="logo" className="image-fit-contain" />
               </Link>
             </div>
@@ -599,10 +599,10 @@ function Navbar() {
             </div>
 
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="secondary" className="text-light" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" className="text-light">
                 Add
               </Button>
             </Modal.Footer>

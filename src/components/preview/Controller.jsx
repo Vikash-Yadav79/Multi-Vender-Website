@@ -1,5 +1,4 @@
-/* components */
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./Header";
 import Home from "./Home";
 import Explore from "./Explore";
@@ -17,10 +16,11 @@ import Register from "./Register";
 import Login from "./Login";
 import Contact from "./Contact";
 import ForgotPassword from "./ForgotPassword";
+import Privacy_Policy from "./Privacy_Policy";
+import ShoppingPage from "../ShoppingPage";
 
 /* explore section images */
 import exploreImg1 from "./assest/images/explore/carpenter.png";
-// import exploreImg2 from './assest/images/explore/carpenter.png';
 import exploreImg2 from "./assest/images/explore/plumber.png";
 import exploreImg3 from "./assest/images/explore/accountant.png";
 import exploreImg4 from "./assest/images/explore/Doctor.png";
@@ -47,6 +47,7 @@ import listingImg9 from "./assest/images/listings/9.jpg";
 /* testimonials section images */
 import testimonialImg1 from "./assest/images/testimonials/1.jpg";
 import testimonialImg2 from "./assest/images/testimonials/2.jpg";
+
 /* blog section images */
 import blogImg1 from "./assest/images/blog/1.jpg";
 import blogImg2 from "./assest/images/blog/2.jpg";
@@ -60,6 +61,7 @@ import blogImg9 from "./assest/images/blog/9.jpg";
 import blogImgAuthor_1 from "./assest/images/blog/author_1.jpg";
 import blogImgAuthor_2 from "./assest/images/blog/author_2.jpg";
 import blogImgAuthor_3 from "./assest/images/blog/author_3.jpg";
+
 /* gallery images */
 import galleryImg1 from "./assest/images/gallery/1.jpg";
 import galleryImg2 from "./assest/images/gallery/2.jpg";
@@ -67,11 +69,6 @@ import galleryImg3 from "./assest/images/gallery/3.jpg";
 import galleryImg4 from "./assest/images/gallery/4.jpg";
 import galleryImg5 from "./assest/images/gallery/5.jpg";
 import galleryImg6 from "./assest/images/gallery/6.jpg";
-import Privacy_Policy from "./Privacy_Policy";
-import ShoppingPage from "../ShoppingPage";
-
-
-
 
 function Controller() {
   var exploreImagesSettings = {
@@ -144,253 +141,239 @@ function Controller() {
       },
     ],
   };
-  return (
-    <>
-      <Router>
-        <Header />
-        <Routes>
 
-          <Route
-            path="/"
-            element={
-              <Home
-                exploreImages={{
-                  exploreImg1,
-                  exploreImg2,
-                  exploreImg3,
-                  exploreImg4,
-                  exploreImg5,
-                }}
-                listingImages={{
-                  listingImg1,
-                  listingImg2,
-                  listingImg3,
-                  listingImg4,
-                  listingImg5,
-                  listingImg6,
-                }}
-                testimonialImages={{ testimonialImg1, testimonialImg2 }}
-                blogImages={{ blogImg1, blogImg2, blogImg3 }}
-                sliderSetting={{
-                  exploreImagesSettings,
-                  testmonialImagesSetting,
-                }}
-              />
-            }
-          />
-          <Route
-            path="/home"
-            element={
-              <Home
-                exploreImages={{
-                  exploreImg1,
-                  exploreImg2,
-                  exploreImg3,
-                  exploreImg4,
-                  exploreImg5,
-                }}
-                listingImages={{
-                  listingImg1,
-                  listingImg2,
-                  listingImg3,
-                  listingImg4,
-                  listingImg5,
-                  listingImg6,
-                }}
-                testimonialImages={{ testimonialImg1, testimonialImg2 }}
-                blogImages={{ blogImg1, blogImg2, blogImg3 }}
-                sliderSetting={{
-                  exploreImagesSettings,
-                  testmonialImagesSetting,
-                }}
-              />
-            }
-          />
-          <Route
-            path="/explore"
-            element={
-              <Explore
-                exploreImages={{
-                  exploreImg1,
-                  exploreImg2,
-                  exploreImg3,
-                  exploreImg4,
-                  exploreImg5,
-                  exploreImg6,
-                  exploreImg7,
-                  exploreImg8,
-                  exploreImg9,
-                  exploreImg10,
-                  exploreImg11,
-                  exploreImg12,
-                }}
-              />
-            }
-          />
-          <Route
-            path="/hotel"
-            element={
-              // eslint-disable-next-line react/jsx-pascal-case
-              <Listing_Grid
-                listingImages={{
-                  listingImg1,
-                  listingImg2,
-                  listingImg3,
-                  listingImg4,
-                  listingImg5,
-                  listingImg6,
-                  listingImg7,
-                  listingImg8,
-                  listingImg9,
-                }}
-              />
-            }
-          />
-          <Route
-            path="/listing_grid_left"
-            element={
-              // eslint-disable-next-line react/jsx-pascal-case
-              <Listing_Grid_Left
-                listingImages={{
-                  listingImg1,
-                  listingImg2,
-                  listingImg3,
-                  listingImg4,
-                  listingImg5,
-                  listingImg6,
-                }}
-              />
-            }
-          />
-          <Route
-            path="/listing_grid_right"
-            element={
-              // eslint-disable-next-line react/jsx-pascal-case
-              <Listing_Grid_Right
-                listingImages={{
-                  listingImg1,
-                  listingImg2,
-                  listingImg3,
-                  listingImg4,
-                  listingImg5,
-                  listingImg6,
-                }}
-              />
-            }
-          />
-          <Route
-            path="/listing_details"
-            element={
-              // eslint-disable-next-line react/jsx-pascal-case
-              <Listing_Details
-                listingImages={{
-                  listingImg1,
-                  listingImg2,
-                  listingImg3,
-                  listingImg4,
-                  blogImgAuthor_1,
-                  blogImgAuthor_2,
-                  blogImgAuthor_3,
-                  galleryImg1,
-                  galleryImg2,
-                  galleryImg3,
-                  galleryImg4,
-                  galleryImg5,
-                  galleryImg6,
-                }}
-              />
-            }
-          />
-          <Route
-            path="/blog_grid"
-            element={
-              // eslint-disable-next-line react/jsx-pascal-case
-              <Blog_Grid
-                blogImages={{
-                  blogImg1,
-                  blogImg2,
-                  blogImg3,
-                  blogImg4,
-                  blogImg5,
-                  blogImg6,
-                  blogImg7,
-                  blogImg8,
-                  blogImg9,
-                }}
-              />
-            }
-          />
-          <Route
-            path="/blog_grid_left"
-            element={
-              // eslint-disable-next-line react/jsx-pascal-case
-              <Blog_Grid_Left
-                blogImages={{
-                  blogImg1,
-                  blogImg2,
-                  blogImg3,
-                  blogImg4,
-                  blogImg5,
-                  blogImg6,
-                }}
-              />
-            }
-          />
-          <Route
-            path="/blog_grid_right"
-            element={
-              // eslint-disable-next-line react/jsx-pascal-case
-              <Blog_Grid_Right
-                blogImages={{
-                  blogImg1,
-                  blogImg2,
-                  blogImg3,
-                  blogImg4,
-                  blogImg5,
-                  blogImg6,
-                }}
-              />
-            }
-          />
-          <Route
-            path="/blog_details"
-            element={
-              // eslint-disable-next-line react/jsx-pascal-case
-              <Blog_Details
-                blogImages={{
-                  blogImg1,
-                  blogImg2,
-                  blogImg4,
-                  blogImgAuthor_1,
-                  blogImgAuthor_2,
-                  blogImgAuthor_3,
-                }}
-              />
-            }
-          />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/Forgot" element={<ForgotPassword />} />
-          <Route
-            path="/services"
-            element={
-              <Services
-                testimonialImages={{ testimonialImg1, testimonialImg2 }}
-                sliderSetting={testmonialImagesSetting}
-              />
-            }
-          />
-          <Route
-            path="/contact"
-            element={<Contact />}
-          />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/shopping" element={<ShoppingPage />} />
-          <Route path="/privacy_policy" element={<Privacy_Policy />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </>
+  return (
+    <Router>
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              exploreImages={{
+                exploreImg1,
+                exploreImg2,
+                exploreImg3,
+                exploreImg4,
+                exploreImg5,
+              }}
+              listingImages={{
+                listingImg1,
+                listingImg2,
+                listingImg3,
+                listingImg4,
+                listingImg5,
+                listingImg6,
+              }}
+              testimonialImages={{ testimonialImg1, testimonialImg2 }}
+              blogImages={{ blogImg1, blogImg2, blogImg3 }}
+              sliderSetting={{
+                exploreImagesSettings,
+                testmonialImagesSetting,
+              }}
+            />
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <Home
+              exploreImages={{
+                exploreImg1,
+                exploreImg2,
+                exploreImg3,
+                exploreImg4,
+                exploreImg5,
+              }}
+              listingImages={{
+                listingImg1,
+                listingImg2,
+                listingImg3,
+                listingImg4,
+                listingImg5,
+                listingImg6,
+              }}
+              testimonialImages={{ testimonialImg1, testimonialImg2 }}
+              blogImages={{ blogImg1, blogImg2, blogImg3 }}
+              sliderSetting={{
+                exploreImagesSettings,
+                testmonialImagesSetting,
+              }}
+            />
+          }
+        />
+        <Route
+          path="/explore"
+          element={
+            <Explore
+              exploreImages={{
+                exploreImg1,
+                exploreImg2,
+                exploreImg3,
+                exploreImg4,
+                exploreImg5,
+                exploreImg6,
+                exploreImg7,
+                exploreImg8,
+                exploreImg9,
+                exploreImg10,
+                exploreImg11,
+                exploreImg12,
+              }}
+            />
+          }
+        />
+        <Route
+          path="/hotel"
+          element={
+            <Listing_Grid
+              listingImages={{
+                listingImg1,
+                listingImg2,
+                listingImg3,
+                listingImg4,
+                listingImg5,
+                listingImg6,
+                listingImg7,
+                listingImg8,
+                listingImg9,
+              }}
+            />
+          }
+        />
+        <Route
+          path="/listing_grid_left"
+          element={
+            <Listing_Grid_Left
+              listingImages={{
+                listingImg1,
+                listingImg2,
+                listingImg3,
+                listingImg4,
+                listingImg5,
+                listingImg6,
+              }}
+            />
+          }
+        />
+        <Route
+          path="/listing_grid_right"
+          element={
+            <Listing_Grid_Right
+              listingImages={{
+                listingImg1,
+                listingImg2,
+                listingImg3,
+                listingImg4,
+                listingImg5,
+                listingImg6,
+              }}
+            />
+          }
+        />
+        <Route
+          path="/listing_details"
+          element={
+            <Listing_Details
+              listingImages={{
+                listingImg1,
+                listingImg2,
+                listingImg3,
+                listingImg4,
+                blogImgAuthor_1,
+                blogImgAuthor_2,
+                blogImgAuthor_3,
+                galleryImg1,
+                galleryImg2,
+                galleryImg3,
+                galleryImg4,
+                galleryImg5,
+                galleryImg6,
+              }}
+            />
+          }
+        />
+        <Route
+          path="/blog_grid"
+          element={
+            <Blog_Grid
+              blogImages={{
+                blogImg1,
+                blogImg2,
+                blogImg3,
+                blogImg4,
+                blogImg5,
+                blogImg6,
+                blogImg7,
+                blogImg8,
+                blogImg9,
+              }}
+            />
+          }
+        />
+        <Route
+          path="/blog_grid_left"
+          element={
+            <Blog_Grid_Left
+              blogImages={{
+                blogImg1,
+                blogImg2,
+                blogImg3,
+                blogImg4,
+                blogImg5,
+                blogImg6,
+              }}
+            />
+          }
+        />
+        <Route
+          path="/blog_grid_right"
+          element={
+            <Blog_Grid_Right
+              blogImages={{
+                blogImg1,
+                blogImg2,
+                blogImg3,
+                blogImg4,
+                blogImg5,
+                blogImg6,
+              }}
+            />
+          }
+        />
+        <Route
+          path="/blog_details"
+          element={
+            // eslint-disable-next-line react/jsx-pascal-case
+            <Blog_Details
+              blogImages={{
+                blogImg1,
+                blogImg2,
+                blogImg3,
+                blogImg4,
+                blogImg5,
+                blogImg6,
+                blogImg7,
+                blogImg8,
+                blogImg9,
+                blogImgAuthor_1,
+                blogImgAuthor_2,
+                blogImgAuthor_3,
+              }}
+            />
+          }
+        />
+        <Route path="/services" element={<Services />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/forgot_password" element={<ForgotPassword />} />
+        <Route path="/privacy_policy" element={<Privacy_Policy />} />
+        <Route path="/shopping" element={<ShoppingPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
