@@ -1019,7 +1019,7 @@ textarea.form-control-custom+i {
 
 /*single_banner*/
 .single_banner {
-    background-image: url("../images/banner/single_banner.jpg");
+    background-image: url("../images/banner/employee.jpeg");
     position: relative;
     z-index: 1;
     overflow: hidden;

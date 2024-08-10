@@ -6,6 +6,26 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <>
+      <section className="newsletter_box down">
+        <div className="container">
+          <div className="section section-bg no-overlay">
+            <div className="section-header">
+              <h3 className="title">Our <span>Newsletter</span></h3>
+              <p className="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            </div>
+            <div className="row justify-content-center">
+              <div className="col-lg-8 col-md-10">
+                <div className="input-group">
+                  <input type="email" name="#" className="form-control" placeholder="Enter Email Address" autoComplete="off" required />
+                  <div className="input-group-append">
+                    <button type="submit" className="thm-btn h-100">Subscribe</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/*  <!-- Footer Start -->  */}
       <footer className="footer section-padding section-bg">
         <div className="container">
@@ -25,8 +45,8 @@ function Footer() {
                     </Link>
                   </div>
                   <p>
-                    Enjoyed your stay at Simpex? Share your moments with us.
-                    Follow us on Instagram and use
+                    Enjoyed your stay at Amanya ra Softech? Share your moments with us.
+                    Follow us on SocialMedia and use
                   </p>
                   <ul className="ft_social">
                     <li>
@@ -49,7 +69,7 @@ function Footer() {
                         <i className="fab fa-linkedin-in"></i>
                       </Link>
                     </li>
-                                  </ul>
+                  </ul>
                 </div>
               </div>
             </div>
