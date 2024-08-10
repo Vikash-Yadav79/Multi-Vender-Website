@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
-import logo from "./assest/images/simpexLogo.jpg";
-import logo_two from "./assest/images/logo_two.png";
+// import logo from "./assest/images/simpexLogo.jpg";
+// import logo_two from "./assest/images/logo_two.png";
+import companyLogo from "./assest/images/companyLogo.jpg"
 import { Link } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
@@ -376,7 +377,7 @@ function Navbar() {
             <div className="logo">
               <Link to="/" className="d-flex h-100">
                 {/* <img src={logo} alt="logo" className="image-fit-contain" /> */}
-                <img src={logo_two} alt="logo" className="image-fit-contain" />
+                <img src={companyLogo} alt="logo" className="image-fit-contain" />
               </Link>
             </div>
             {/* <!-- logo --> */}

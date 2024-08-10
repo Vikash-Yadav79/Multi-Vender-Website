@@ -46,6 +46,13 @@ function Login() {
         });
 
         if (response.data.success) {
+          // Assuming the API returns a token in the response
+          const token = response.data.token;
+
+          // Store email and token in localStorage
+          localStorage.setItem("userEmail", email);
+          localStorage.setItem("authToken", token);
+
           console.log("Login successful, navigating to home page");
           navigate("/explore");
         } else {
@@ -53,12 +60,15 @@ function Login() {
         }
       } catch (error) {
         console.error("There was an error logging in!", error);
-        setErrors({ apiError: "An unexpected error occurred. Please try again." });
+        setErrors({
+          apiError: "An unexpected error occurred. Please try again.",
+        });
       } finally {
         setLoading(false);
       }
     }
   };
+
 
   return (
     <>
@@ -90,10 +100,11 @@ function Login() {
                 <h3>Log In</h3>
                 <div className="row">
                   <div className="col-md-6">
-                    <button type="button" className="thm-btn w-100 mb-xl-30">
+                    <button type="button" className="thm-btn w-100 mb-xl-30" >
                       <i className="fab fa-facebook-f ms-0 me-4"></i>
                       Login with Facebook
                     </button>
+
                   </div>
                   <div className="col-md-6">
                     <button type="button" className="thm-btn w-100 mb-xl-30">
