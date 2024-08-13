@@ -168,39 +168,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="newsletter_box down">
-        <div className="container">
-          <div className="section section-bg no-overlay">
-            <div className="section-header">
-              <h3 className="title">
-                Our <span>Newsletter</span>
-              </h3>
-              <p className="text">
-                Stay updated with our latest news and offers.
-              </p>
-            </div>
-            <div className="row justify-content-center">
-              <div className="col-lg-8 col-md-10">
-                <div className="input-group">
-                  <input
-                    type="email"
-                    name="email"
-                    className="form-control"
-                    placeholder="Enter Email Address"
-                    autoComplete="off"
-                    required
-                  />
-                  <div className="input-group-append">
-                    <button type="submit" className="thm-btn h-100">
-                      Subscribe
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
     </>
   );
 }

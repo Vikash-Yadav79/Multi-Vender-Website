@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 // import logo from "./assest/images/simpexLogo.jpg";
 // import logo_two from "./assest/images/logo_two.png";
 import companyLogo from "./assest/images/companyLogo.jpg"
@@ -343,8 +343,8 @@ function Navbar() {
     PHONE: "",
     CATEGORIES: "",
     JOB_PROFILE: "",
-    IMAGE: "",
-    VIDEO: "",
+    // IMAGE: "",
+    // VIDEO: "",
   });
 
 
@@ -353,20 +353,66 @@ function Navbar() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    /* const response = await axios.post(
-      "http://localhost:5000/listing",
-      formData
-    );
-    if (response.status === 201) {
-      toast.success("List Added Successfully...");
-      handleClose();
-    } */
-    toast.success("List Added Successfully...");
-    handleClose();
 
+    try {
+      const response = await axios.post(
+        "https://amanyademo.in.net/e_vendor_app/api/create-service-listing",
+        formData
+      );
+
+      if (response.status === 201) {
+        toast.success("List Added Successfully...");
+        handleClose();
+      } else {
+        toast.info(`List added with status ${response.status}`);
+        handleClose();
+      }
+    } catch (error) {
+      if (error.response) {
+        // Server responded with an error
+        console.error('Error response data:', error.response.data);
+        console.error('Error response status:', error.response.status);
+        console.error('Error response headers:', error.response.headers);
+
+        const { message, errors } = error.response.data;
+
+        // Show the general error message
+        toast.error(`Error: ${message || 'An error occurred'}`);
+
+        // Display validation errors if available
+        if (errors && Array.isArray(errors)) {
+          errors.forEach((err, index) => {
+            // Assuming errors is an array of strings
+            toast.error(`Validation Error ${index + 1}: ${err}`);
+          });
+        } else if (typeof errors === 'object') {
+          // Assuming errors is an object with field-specific messages
+          for (const [field, errorMessages] of Object.entries(errors)) {
+            errorMessages.forEach((errorMessage, index) => {
+              toast.error(`${field}: ${errorMessage}`);
+            });
+          }
+        }
+      } else if (error.request) {
+        // Network error (request was made but no response received)
+        console.error('Error request data:', error.request);
+        toast.error('No response received from server.');
+      } else {
+        // Error setting up the request
+        console.error('Error message:', error.message);
+        toast.error(`Error: ${error.message}`);
+      }
+
+      handleClose();
+    }
   };
+
+
+
   return (
     <>
       {/* <!-- Header Start --> */}
@@ -544,7 +590,7 @@ function Navbar() {
                 name="CATEGORIES"
                 className="form-control"
                 onChange={handleChange}
-                required
+
               >
                 <option value="">CATEGORIES</option>
                 <option value="SERVICES">SERVICES</option>
@@ -558,7 +604,7 @@ function Navbar() {
                 name="JOB_PROFILE"
                 className="form-control"
                 onChange={handleChange}
-                required
+
               >
                 <option value="">LIST YOUR JOB PROFILE</option>
                 {jobOptions.map((items, index) => {
@@ -571,7 +617,7 @@ function Navbar() {
               </select>
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
               <label htmlFor="" className="pe-4">
                 Upload Image:{" "}
               </label>
@@ -583,8 +629,8 @@ function Navbar() {
                 onChange={handleChange}
                 className="form-control"
               />
-            </div>
-            <div className="form-group">
+            </div> */}
+            {/* <div className="form-group">
               <label htmlFor="" className="pe-4">
                 Upload Video:{" "}
               </label>
@@ -597,7 +643,7 @@ function Navbar() {
                 onChange={handleChange}
                 className="form-control"
               />
-            </div>
+            </div> */}
 
             <Modal.Footer>
               <Button variant="secondary" className="text-light" onClick={handleClose}>

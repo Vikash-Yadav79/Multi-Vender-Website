@@ -228,6 +228,7 @@ function Controller() {
           <Route
             path="/listing_grid"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Listing_Grid
                 listingImages={{
                   listingImg1,
@@ -246,6 +247,7 @@ function Controller() {
           <Route
             path="/listing_grid_left"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Listing_Grid_Left
                 listingImages={{
                   listingImg1,
@@ -261,6 +263,7 @@ function Controller() {
           <Route
             path="/listing_grid_right"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Listing_Grid_Right
                 listingImages={{
                   listingImg1,
@@ -276,6 +279,7 @@ function Controller() {
           <Route
             path="/listing_details"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Listing_Details
                 listingImages={{
                   listingImg1,
@@ -298,6 +302,7 @@ function Controller() {
           <Route
             path="/blog_grid"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Blog_Grid
                 blogImages={{
                   blogImg1,
@@ -316,6 +321,7 @@ function Controller() {
           <Route
             path="/blog_grid_left"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Blog_Grid_Left
                 blogImages={{
                   blogImg1,
@@ -331,6 +337,7 @@ function Controller() {
           <Route
             path="/blog_grid_right"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Blog_Grid_Right
                 blogImages={{
                   blogImg1,
@@ -346,6 +353,7 @@ function Controller() {
           <Route
             path="/blog_details"
             element={
+              // eslint-disable-next-line react/jsx-pascal-case
               <Blog_Details
                 blogImages={{
                   blogImg1,
