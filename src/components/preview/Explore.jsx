@@ -1,7 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Explore(props) {
+function Explore() {
+  const [services, setServices] = useState([]);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    fetch('https://amanyademo.in.net/e_vendor_app/api/get-all-service')
+      .then(response => {
+        console.log('Response Status:', response.status);
+        console.log('Response URL:', response.url);
+
+        // Check if response is HTML
+        if (response.headers.get('content-type')?.includes('text/html')) {
+          return response.text().then(text => {
+            console.error('HTML Response:', text);
+            setError('Expected JSON, but received HTML');
+            throw new Error('Expected JSON, but received HTML');
+          });
+        }
+
+        // Attempt to parse as JSON
+        return response.json();
+      })
+      .then(data => {
+        // Check if the response contains an error or invalid structure
+        if (data.status !== true) {
+          throw new Error(data.message || 'Unexpected response format');
+        }
+
+        // Check if `Services` is an array and not empty
+        if (!Array.isArray(data.Services)) {
+          throw new Error('Expected `Services` to be an array');
+        }
+
+        setServices(data.Services);
+      })
+      .catch(err => {
+        console.error('Error fetching data:', err);
+        setError(err.message || 'An unknown error occurred');
+      });
+  }, []);
+
   return (
     <>
       {/* <!-- Subheader Start --> */}
@@ -24,8 +64,9 @@ function Explore(props) {
           </div>
         </div>
       </div>
-      {/* <!-- Subheader End -->
-    <!-- Section Start --> */}
+      {/* <!-- Subheader End --> */}
+
+      {/* <!-- Section Start --> */}
       <section className="section-padding">
         <div className="container">
           {/* <!-- Header for Explore Items --> */}
@@ -38,223 +79,45 @@ function Explore(props) {
             </p>
           </div>
 
+          {/* <!-- Display error if any --> */}
+          {error && (
+            <div className="error-message">
+              <p>{error}</p>
+            </div>
+          )}
+
           <div className="row">
-            {/*<!-- Item -->*/}
-            <div className="col-lg-3 col-sm-6">
-              <div className="explore_box">
-                <div className="explore_image">
-                  <Link to="#" className="d-flex h-100">
-                    <img
-                      src={props.exploreImages.exploreImg1}
-                      alt="img"
-                      className="image-fit"
-                    />
-                  </Link>
-                </div>
-                <div className="explore_text">
-                  <div className="rating">
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star"></i>
+            {services.map((service) => (
+              <div className="col-lg-3 col-sm-6" key={service.id}>
+                <div className="explore_box">
+                  <div className="explore_image">
+                    <Link to={`/service/${service.id}`} className="d-flex h-100">
+                      <img
+                        src={`https://amanyademo.in.net/e_vendor_app/public/upload/${service.image}`}
+                        alt={service.job_profile}
+                        className="image-fit"
+                      />
+                    </Link>
                   </div>
-                  <h5 className="title">
-                    <Link to="#">Denmark</Link>
-                  </h5>
-                </div>
-                <span className="listing_badge thm-btn btn-small">20 Listings</span>
-              </div>
-            </div>
-            {/*<!-- Item -->*/}
-            <div className="col-lg-3 col-sm-6">
-              <div className="explore_box">
-                <div className="explore_image">
-                  <Link to="#" className="d-flex h-100">
-                    <img
-                      src={props.exploreImages.exploreImg2}
-                      alt="img"
-                      className="image-fit"
-                    />
-                  </Link>
-                </div>
-                <div className="explore_text">
-                  <div className="rating">
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star"></i>
+                  <div className="explore_text">
+                    <div className="rating">
+                      {[...Array(5)].map((_, i) => (
+                        <i
+                          className={`bi-star${i < service.rating ? '-fill' : ''}`}
+                          key={i}
+                        ></i>
+                      ))}
+                    </div>
+                    <h5 className="title">
+                      <Link to={`/service/${service.id}`}>{service.job_profile}</Link>
+                    </h5>
                   </div>
-                  <h5 className="title">
-                    <Link to="#">Chicago</Link>
-                  </h5>
+                  <span className="listing_badge thm-btn btn-small">
+                    {service.listings} Listings
+                  </span>
                 </div>
-                <span className="listing_badge thm-btn btn-small">30 Listings</span>
               </div>
-            </div>
-            {/*<!-- Item -->*/}
-            <div className="col-lg-3 col-sm-6">
-              <div className="explore_box">
-                <div className="explore_image">
-                  <Link to="#" className="d-flex h-100">
-                    <img
-                      src={props.exploreImages.exploreImg3}
-                      alt="img"
-                      className="image-fit"
-                    />
-                  </Link>
-                </div>
-                <div className="explore_text">
-                  <div className="rating">
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star"></i>
-                  </div>
-                  <h5 className="title">
-                    <Link to="#">Denver</Link>
-                  </h5>
-                </div>
-                <span className="listing_badge thm-btn btn-small">10 Listings</span>
-              </div>
-            </div>
-            {/*<!-- Item -->*/}
-            <div className="col-lg-3 col-sm-6">
-              <div className="explore_box">
-                <div className="explore_image">
-                  <Link to="#" className="d-flex h-100">
-                    <img
-                      src={props.exploreImages.exploreImg4}
-                      alt="img"
-                      className="image-fit"
-                    />
-                  </Link>
-                </div>
-                <div className="explore_text">
-                  <div className="rating">
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star"></i>
-                  </div>
-                  <h5 className="title">
-                    <Link to="#">Los Vegas</Link>
-                  </h5>
-                </div>
-                <span className="listing_badge thm-btn btn-small">25 Listings</span>
-              </div>
-            </div>
-            {/*<!-- Item -->*/}
-            <div className="col-lg-3 col-sm-6">
-              <div className="explore_box">
-                <div className="explore_image">
-                  <Link to="#" className="d-flex h-100">
-                    <img
-                      src={props.exploreImages.exploreImg5}
-                      alt="img"
-                      className="image-fit"
-                    />
-                  </Link>
-                </div>
-                <div className="explore_text">
-                  <div className="rating">
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star"></i>
-                  </div>
-                  <h5 className="title">
-                    <Link to="#">San Diego</Link>
-                  </h5>
-                </div>
-                <span className="listing_badge thm-btn btn-small">30 Listings</span>
-              </div>
-            </div>
-            {/*<!-- Item -->*/}
-            <div className="col-lg-3 col-sm-6">
-              <div className="explore_box">
-                <div className="explore_image">
-                  <Link to="#" className="d-flex h-100">
-                    <img
-                      src={props.exploreImages.exploreImg6}
-                      alt="img"
-                      className="image-fit"
-                    />
-                  </Link>
-                </div>
-                <div className="explore_text">
-                  <div className="rating">
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star"></i>
-                  </div>
-                  <h5 className="title">
-                    <Link to="#">New York</Link>
-                  </h5>
-                </div>
-                <span className="listing_badge thm-btn btn-small">40 Listings</span>
-              </div>
-            </div>
-            {/*<!-- Item -->*/}
-            <div className="col-lg-3 col-sm-6">
-              <div className="explore_box">
-                <div className="explore_image">
-                  <Link to="#" className="d-flex h-100">
-                    <img
-                      src={props.exploreImages.exploreImg7}
-                      alt="img"
-                      className="image-fit"
-                    />
-                  </Link>
-                </div>
-                <div className="explore_text">
-                  <div className="rating">
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star"></i>
-                  </div>
-                  <h5 className="title">
-                    <Link to="#">Denmark</Link>
-                  </h5>
-                </div>
-                <span className="listing_badge thm-btn btn-small">20 Listings</span>
-              </div>
-            </div>
-            {/*<!-- Item -->*/}
-            <div className="col-lg-3 col-sm-6">
-              <div className="explore_box">
-                <div className="explore_image">
-                  <Link to="#" className="d-flex h-100">
-                    <img
-                      src={props.exploreImages.exploreImg8}
-                      alt="img"
-                      className="image-fit"
-                    />
-                  </Link>
-                </div>
-                <div className="explore_text">
-                  <div className="rating">
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star-fill"></i>
-                    <i className="bi-star"></i>
-                  </div>
-                  <h5 className="title">
-                    <Link to="#">Chicago</Link>
-                  </h5>
-                </div>
-                <span className="listing_badge thm-btn btn-small">30 Listings</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
