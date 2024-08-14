@@ -18,20 +18,39 @@ const Contact = () => {
       .matches(/^\d{10}$/, "Phone No. must be exactly 10 digits")
       .required("Phone No. is required"),
     subject: Yup.string().required("Subject is required"),
-    msg: Yup.string().required("Message is required"),
+    messsage: Yup.string().required("Message is required"),
   });
 
   // Function to handle form submission
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
-    axios.post("http://localhost:8000/contact.php", values)
+    axios.post("https://admin.amanyademo.in.net/api/get-quotes", values)
       .then(response => {
         console.log(response.data);
-        alert("Message sent successfully!");
+        alert(response.data.message);
         resetForm();
       })
       .catch(error => {
+        // Log the complete error object for debugging
         console.error("There was an error sending the message!", error);
-        alert("There was an error sending your message.");
+
+        // Print detailed error information
+        if (error.response) {
+          // Server responded with a status other than 2xx
+          console.error("Response data:", error.response.data);
+          console.error("Response status:", error.response.status);
+          console.error("Response headers:", error.response.headers);
+          alert(`Error: ${error.response.data.message || "An error occurred!"}`);
+        } else if (error.request) {
+          // Request was made but no response was received
+          console.error("Request data:", error.request);
+          alert("No response from server. Please try again later.");
+        } else {
+          // Something else caused the error
+          console.error("Error message:", error.message);
+          alert(`Error: ${error.message}`);
+        }
+
+        console.error("Error configuration:", error.config);
       })
       .finally(() => {
         setSubmitting(false);
@@ -71,7 +90,7 @@ const Contact = () => {
                     email: "",
                     phone: "",
                     subject: "",
-                    msg: "",
+                    messsage: "",
                   }}
                   validationSchema={validationSchema}
                   onSubmit={handleSubmit}
@@ -140,12 +159,12 @@ const Contact = () => {
                             <Field
                               as="textarea"
                               rows="5"
-                              name="msg"
+                              name="messsage"
                               className="form-control form-control-custom"
                               placeholder="Message"
                               autoComplete="off"
                             />
-                            <ErrorMessage name="msg" component="div" className="text-danger" />
+                            <ErrorMessage name="messsage" component="div" className="text-danger" />
                           </div>
                         </div>
                         <div className="col-md-12">
