@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import logo from './assest/images/simpexLogo.jpg';
+// import logo from './assest/images/simpexLogo.jpg';
+import companyLogo from "./assest/images/companyLogo.jpg"
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -38,8 +39,8 @@ function Footer() {
         <div className="container">
           <div className="section section-bg no-overlay">
             <div className="section-header">
-              <h3 className="title">Our <span>Newsletter</span></h3>
-              <p className="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+              <h3 className="title">Stay Updated</h3>
+              <p className="text">Subscribe to our newsletter and be the first to know about the latest news, offers, and updates from us.</p>
             </div>
             <div className="row justify-content-center">
               <div className="col-lg-8 col-md-10">
@@ -77,7 +78,7 @@ function Footer() {
                   <div className="ft_logo">
                     <Link to="/">
                       <img
-                        src={logo}
+                        src={companyLogo}
                         alt="logo"
                         className="image-fit-contain"
                       />
@@ -169,7 +170,7 @@ function Footer() {
               <div className="ft_widgets">
                 <h5 className="ft_title">Contact Us</h5>
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem{" "}
+                  We are here to assist you with any inquiries or support you may need.
                 </p>
                 <ul className="ft_contact ft_menu">
                   <li>
