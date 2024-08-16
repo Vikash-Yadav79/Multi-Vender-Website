@@ -30,309 +30,7 @@ function Navbar() {
     "AUCTIONEER",
     "AUTHOR",
     "AC REPAIR",
-    "ANIMAL TRAINER",
-    "ADVOCAT",
-    "ANTHROPOLOGIST",
-    "ATTENDANT",
-    "BABYSITTER",
-    "BAKER",
-    "BANKER",
-    "BARBER",
-    "BASEBALL PLAYER",
-    "BASKETHBALL PLAYER",
-    "BELLHOP",
-    "BIOLOGIST",
-    "BLACKSMITH",
-    "BOOKKEEPER",
-    "BOWLER",
-    "BUILDER",
-    "BUTCHER",
-    "BUTLER",
-    "BUSINESS ANALYST",
-    "BULDER",
-    "BELLBOY",
-    "CAB DRIVER",
-    "CALLIGRAPHER",
-    "CAPTAIN",
-    "CAREGIVER",
-    "CARPENTER",
-    "CARTOGRAPHER",
-    "CARTOONIST",
-    "CASHIER",
-    "CATCHER",
-    "CATERER",
-    "CELLIST",
-    "CHAPLAIN",
-    "CHAUFFEUR",
-    "CHEF",
-    "CHEMIST",
-    "CLERGYMAN",
-    "COACH",
-    "COBBLER",
-    "COMPOSER",
-    "CONCIERGE",
-    "CONSUL",
-    "CONTRACTOR",
-    "COOK",
-    "CORONER",
-    "COURIER",
-    "CRYPTOGRAPHER",
-    "CUSTODIAN",
-    "CUSTUME DESIGNER",
-    "CREATIVE ENGINEERING",
-    "COMEDIAN",
-    "CONSTRUCTION WORKER",
-    "COACHMAKER",
-    "CABINET MAKER",
-    "CASER",
-    "COACH MAKER",
-    "GARBAGEMAN",
-    "HAIRDRESSER",
-    "HANDYMAN",
-    "HARPIST",
-    "HIGHWAY PATROL",
-    "HUNTER",
-    "MACHINE",
-    "MINER",
-    "ILLUSTRATOR",
-    "IMPORTER",
-    "INSTRUCTOR",
-    "INTERN",
-    "INTERNIST",
-    "INTERPRETER",
-    "INVENTOR",
-    "INVESTIGATOR",
-    "JANITOR",
-    "JOURNALIST",
-    "JEWELER",
-    "KARATE",
-    "TEACHER",
-    "LABORER",
-    "LANDLORD",
-    "LANDSCAPER",
-    "LAWYER",
-    "LECTURE",
-    "LEGAL AIDE",
-    "LIBRARIAN",
-    "LIBRETTIST",
-    "LIFEGUARD",
-    "LINGUIST",
-    "LOBBYIST",
-    "LOCKSMITH",
-    "LYRICIST",
-    "MAGICIAN",
-    "MAID",
-    "MAIL CARRIER",
-    "MANUFACTURER",
-    "MARINE",
-    "MARKETER",
-    "MASON",
-    "MATHEMATICIAN",
-    "MECHANIC",
-    "MINER",
-    "MUSICIAN",
-    "NAVIGATOR",
-    "NEGOTIATOR",
-    "NOTARY",
-    "NOVELIST",
-    "NUN",
-    "NURSE",
-    "PALEONTOLOGIST",
-    "PARALEGAL",
-    "PARK RANGER",
-    "PATHOLOGIST",
-    "PAWNBROKER",
-    "PEDDLER/ FARIWALA",
-    "PEDIATRICIAN",
-    "PERCUSSIONIST",
-    "PERFORMER",
-    "PHARMACIST",
-    "PHILOSOPHER",
-    "PHOTOGRAPHER",
-    "PHYSICIAN",
-    "PHYSICIST",
-    "PAINIST",
-    "PITCHER",
-    "PLUMBER",
-    "PRIVATE DETECTIVE",
-    "PROFESSOR",
-    "PROGRAMMER",
-    "PSYCHIATRIST",
-    "PSYCHOLOGIST",
-    "PUBLISHER",
-    "PANDITJI",
-    "QUARTERBACK",
-    "QUILTER",
-    "DANCER",
-    "DENTIST",
-    "DERMATOLOGIST",
-    "DESIGNER",
-    "DETECTIVE",
-    "DISC JOCKEY",
-    "DIVER",
-    "DOCTOR",
-    "DOORMAN",
-    "DRIVER",
-    "DRUMMER",
-    "DRY CLEANER",
-    "DELIVERY BOY",
-    "DECORATOR",
-    "ECOLOGIST",
-    "ECONOMIST",
-    "EDITOR",
-    "EDUCATOR",
-    "ELECTRICIAN",
-    "ENGINEER",
-    "FARMER",
-    "FINANCIER",
-    "FIREFIGHTER",
-    "FISHERMAN",
-    "FLUTIST",
-    "FOOTBALL PLAYER",
-    "FORMAN",
-    "FACTORY WORKER",
-    "FARMER",
-    "FIREFIGHTER",
-    "GAME DESIGNER",
-    "GARBAGE MAN",
-    "GARDENER",
-    "GATHERER",
-    "GEMCUTTER",
-    "GENETICIST",
-    "GEOGRAPHER",
-    "GEOLOGIST",
-    "GOLFER",
-    "GROCER",
-    "GUIDE",
-    "GAS STATION",
-    "RADIOLOGIST",
-    "RANCHER",
-    "RANGER",
-    "REAL ESTATE AGENT",
-    "RECEPTIONIST",
-    "REFEREE",
-    "REGISTRAR",
-    "REPORTER",
-    "REPRESENTATIVE",
-    "RESEARCHER",
-    "RESTAURATEUR",
-    "RETAILER",
-    "RETIREE",
-    "SAILOR",
-    "SALESPERSON",
-    "SAXOPHONIST",
-    "SCOUT",
-    "SCUBA DIVER",
-    "SECURITY GUARD",
-    "SENATOR",
-    "SHERIFF",
-    "SINGER",
-    "SMITH",
-    "SOCIALITE",
-    "SPY",
-    "STOCK BROKER",
-    "STREET SWEEPER",
-    "SURVEYOR",
-    "SWIMMER",
-    "TAILOR",
-    "TAXI DRIVER",
-    "TAXIDERMIST",
-    "TEACHER",
-    "TECHNICIAN",
-    "TENNIS PLAYER",
-    "TEST PILOT",
-    "TILER",
-    "TOOLMAKER",
-    "TRADER",
-    "TRAINER",
-    "TRANSLATOR",
-    "TRAVEL AGENT",
-    "TRUCK DRIVER",
-    "TUTOR",
-    "TYPEWRITER",
-    "TEA GARDEN LABORER",
-    "THERAPIST",
-    "TOUR GUIDE",
-    "UNDERTAKER",
-    "USHER",
-    "VALET",
-    "VETERAN",
-    "VETERINARIAN",
-    "VICAR",
-    "VIOLINIST",
-    "WAITER",
-    "WAITRESS",
-    "WARDEN",
-    "WATCHMAKER",
-    "WEAVER",
-    "WELDER",
-    "WOODCARVER",
-    "WORKMAN",
-    "WRANGLER",
-    "WRITER",
-    "YODELER",
-    "ZOOKEEPER",
-    "ZOOLOGIST",
-    "VEGETABLE GARDEN",
-    "TEA GARDEN",
-    "FLOWER GARDEN",
-    "FIELD",
-    "NURSERY",
-    "FISHING POND",
-    "POULTRY FARM",
-    "DAIRY FARM",
-    "GARDEN",
-    "PLANTATION",
-    "ORGANIC FARMING",
-    "SUBSISTENCE FARMING",
-    "PLANTATION AGRICULTURE",
-    "HARVESTING",
-    "IRRIGATION",
-    "LIVESTOCK FARMING",
-    "SHIFTING FARMING",
-    "AQUACULTURE",
-    "ARABLE FARMING",
-    "COMMERCIAL FARMING",
-    "COVER CROPPING",
-    "HYDROPONICS",
-    "PLANTING",
-    "AGRICULTURAL COMMUNICATION",
-    "AGROFORESTRY",
-    "HORTICULTURE",
-    "MIXED FARMING",
-    "NOMADIC HERDING",
-    "SOWING",
-    "INTEGRATING TREES",
-    "ANIMALS AND FORAGE",
-    "AGROFORESTRY",
-    "VERTICAL FARMING",
-    "REGENERATIVE AGRICULTURE",
-    "PRECISION AGRICULTURE",
-    "AQUAPONICS",
-    "DRY LAND FARMING",
-    "MEDITERRANEAN FARMING",
-    "TOLET",
-    "FARMING MACHINE",
-    "FARM VEHICLES",
-    "HOME APPLIANCES MACHINES",
-    "INDUSTRIAL MACHINES",
-    "FURNITURE",
-    "ELECTRICAL& ELECTRONICS",
-    "VEHICLES",
-    "TRANSPORT VEHICLES",
-    "E BIKE & SCOOTER",
-    "FACTORY",
-    "ALL CONSTRUCTION",
-    "BUILDERS",
-    "INDUSTRIAL PLANTS",
-    "SUPPLIES",
-    "MACHINERY & EQUIPMENT",
-    "REAL ESTATE",
-    "MEDICAL INSTRUMENT",
-    "MECHANICAL PARTS",
-    "ALLIED INDUSTRIES",
-    "IT SERVICES",
-    "FERTILIZER",
+   
   ];
 
   const [jobOptions, setJobOptions] = useState(options.sort());
@@ -440,52 +138,10 @@ function Navbar() {
                   <li className="menu-item">
                     <Link to="/explore">Explore</Link>
                   </li>
-                  {/* <li className="menu-item">
-                    <Link to="/explore">Categories</Link>
-                  </li> */}
-                  {/* <li className="menu-item menu-item-has-children">
-                    <Link to="#">Categeries</Link>
-                    <ul className="sub-menu">
-                      <li className="menu-item menu-item-has-children">
-                        <Link to="#">Listing Grid</Link>
-                        <ul className="sub-menu">
-                          <li className="menu-item">
-                            <Link to="/listing_grid">Full Width</Link>
-                          </li>
-                          <li className="menu-item">
-                            <Link to="/listing_grid_left">Left Sidebar</Link>
-                          </li>
-                          <li className="menu-item">
-                            <Link to="/listing_grid_right">Right Sidebar</Link>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="menu-item">
-                        <Link to="/listing_details">Listing Details</Link>
-                      </li>
-                    </ul>
-                  </li> */}
+                
                   <li className="menu-item ">
                     <Link to="/blog_details">Blog</Link>
-                    {/* <ul className="sub-menu">
-                      <li className="menu-item menu-item-has-children">
-                        <Link to="#">Blog Grid</Link>
-                        <ul className="sub-menu">
-                          <li className="menu-item">
-                            <Link to="/blog_grid">Full Width</Link>
-                          </li>
-                          <li className="menu-item">
-                            <Link to="/blog_grid_left">Left Sidebar</Link>
-                          </li>
-                          <li className="menu-item">
-                            <Link to="/blog_grid_right">Right Sidebar</Link>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="menu-item">
-                        <Link to="/blog_details">Blog Details</Link>
-                      </li>
-                    </ul> */}
+                  
                   </li>
                   <li className="menu-item menu-item-has-children">
                     <Link to="#">Services</Link>
@@ -493,12 +149,7 @@ function Navbar() {
                       <li className="menu-item">
                         <Link to="/services"> All Services</Link>
                       </li>
-                      {/* <li className="menu-item">
-                        <Link to="/login">Login</Link>
-                      </li>
-                      <li className="menu-item">
-                        <Link to="/register">SignUp</Link>
-                      </li> */}
+                    
                     </ul>
                   </li>
                   <li className="menu-item">
@@ -590,7 +241,6 @@ function Navbar() {
                 name="CATEGORIES"
                 className="form-control"
                 onChange={handleChange}
-
               >
                 <option value="">CATEGORIES</option>
                 <option value="SERVICES">SERVICES</option>
@@ -604,7 +254,6 @@ function Navbar() {
                 name="JOB_PROFILE"
                 className="form-control"
                 onChange={handleChange}
-
               >
                 <option value="">LIST YOUR JOB PROFILE</option>
                 {jobOptions.map((items, index) => {
@@ -616,35 +265,6 @@ function Navbar() {
                 })}
               </select>
             </div>
-
-            {/* <div className="form-group">
-              <label htmlFor="" className="pe-4">
-                Upload Image:{" "}
-              </label>
-              <input
-                type="file"
-                name="IMAGE"
-                accept="image/*"
-                value={formData.IMAGE}
-                onChange={handleChange}
-                className="form-control"
-              />
-            </div> */}
-            {/* <div className="form-group">
-              <label htmlFor="" className="pe-4">
-                Upload Video:{" "}
-              </label>
-
-              <input
-                type="file"
-                name="VIDEO"
-                accept="video/*"
-                value={formData.VIDEO}
-                onChange={handleChange}
-                className="form-control"
-              />
-            </div> */}
-
             <Modal.Footer>
               <Button variant="secondary" className="text-light" onClick={handleClose}>
                 Close

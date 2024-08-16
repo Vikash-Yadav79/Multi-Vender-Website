@@ -64,7 +64,6 @@ function ForgotPassword() {
                     </div>
                 </div>
             </div>
-
             <section className="section">
                 <div className="container">
                     <div className="row justify-content-center">

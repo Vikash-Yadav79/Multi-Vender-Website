@@ -16,6 +16,7 @@ import Register from "./Register";
 import Login from "./Login";
 import Contact from "./Contact";
 import Privacy_Policy from "./Privacy_Policy";
+import ForgotPassword from "./ForgotPassword";
 
 
 /* explore section images */
@@ -68,6 +69,7 @@ import galleryImg3 from "./assest/images/gallery/3.jpg";
 import galleryImg4 from "./assest/images/gallery/4.jpg";
 import galleryImg5 from "./assest/images/gallery/5.jpg";
 import galleryImg6 from "./assest/images/gallery/6.jpg";
+
 
 
 
@@ -368,6 +370,7 @@ function Controller() {
           />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route
             path="/services"
             element={
