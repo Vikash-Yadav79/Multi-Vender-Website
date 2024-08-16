@@ -444,7 +444,7 @@ function Listing_Grid_Left(props) {
     </section>
     {/* <!-- Section End -->
     <!-- Newsletter Start --> */}
-    <section class="newsletter_box down">
+    {/* <section class="newsletter_box down">
         <div class="container">
             <div class="section section-bg no-overlay">
                 <div class="section-header">
@@ -463,7 +463,7 @@ function Listing_Grid_Left(props) {
                 </div>
             </div>
         </div>
-    </section>
+    </section> */}
     {/* <!-- Newsletter End --> */}
 
     </>

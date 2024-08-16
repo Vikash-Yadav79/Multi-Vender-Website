@@ -334,11 +334,6 @@ function Services() {
                   <div className="px-3 slide_item" key={testimonial.id}>
                     <div className="testimonial_item">
                       <div className="author_image">
-                        {/* <img
-                          src={`https://admin.amanyademo.in.net/api/uploads/${testimonial.testimonials_image}`}
-                          alt={testimonial.testimonials_name}
-                          className="image-fit"
-                        /> */}
                         <img
                           src={`https://admin.amanyademo.in.net/public/upload/${testimonial.testimonials_image}`}
                           alt={testimonial.testimonials_name}

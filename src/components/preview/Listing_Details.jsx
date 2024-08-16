@@ -467,7 +467,7 @@ function Listing_Details(props) {
             </section>
             {/*  <!-- Section End -->
     <!-- Newsletter Start --> */}
-            <section className="newsletter_box down">
+            {/* <section className="newsletter_box down">
                 <div className="container">
                     <div className="section section-bg no-overlay" >
                         <div className="section-header">
@@ -486,7 +486,7 @@ function Listing_Details(props) {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
             {/*  <!-- Newsletter End --> */}
 
         </>
