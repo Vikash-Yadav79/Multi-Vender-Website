@@ -75,10 +75,12 @@ function Home(props) {
                       required
                     />
                     <select className="form-control custom-select" required>
-                      <option selected>All Categories</option>
-                      <option value="option1">Option 1</option>
-                      <option value="option2">Option 2</option>
-                      <option value="option3">Option 3</option>
+                      <option value="" disabled selected>Select a Category</option>
+                      <option value="electronics">Electronics</option>
+                      <option value="fashion">Fashion</option>
+                      <option value="home_appliances">Home Appliances</option>
+                      <option value="books">Books</option>
+                      <option value="toys">Toys</option>
                     </select>
                     <input
                       type="text"
@@ -175,9 +177,11 @@ function Home(props) {
           </div>
         </div>
       </section>
-      
+
     </>
   );
 }
 
 export default Home;
+
+

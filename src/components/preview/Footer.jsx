@@ -1,9 +1,37 @@
-
-import React from "react";
+import React, { useState } from "react";
 import logo from './assest/images/simpexLogo.jpg';
 import { Link } from "react-router-dom";
 
 function Footer() {
+  const [subscribers_email, setSubscribers_email] = useState('');
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+
+  const handleSubscribe = (event) => {
+    event.preventDefault();
+    fetch('https://admin.amanyademo.in.net/api/subscriber', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ subscribers_email }),
+    })
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(err => Promise.reject(err));
+        }
+        return response.json();
+      })
+      .then(data => {
+        setSuccess('You have successfully subscribed!');
+        setError(null);
+      })
+      .catch(err => {
+        setError(err.message || 'Failed to subscribe');
+        setSuccess(null);
+      });
+  };
+
   return (
     <>
       <section className="newsletter_box down">
@@ -15,18 +43,30 @@ function Footer() {
             </div>
             <div className="row justify-content-center">
               <div className="col-lg-8 col-md-10">
-                <div className="input-group">
-                  <input type="email" name="#" className="form-control" placeholder="Enter Email Address" autoComplete="off" required />
-                  <div className="input-group-append">
-                    <button type="submit" className="thm-btn h-100">Subscribe</button>
+                <form onSubmit={handleSubscribe}>
+                  <div className="input-group">
+                    <input
+                      type="subscribers_email"
+                      value={subscribers_email}
+                      onChange={(e) => setSubscribers_email(e.target.value)}
+                      className="form-control"
+                      placeholder="Enter Email Address"
+                      autoComplete="off"
+                      required
+                    />
+                    <div className="input-group-append">
+                      <button type="submit" className="thm-btn h-100">Subscribe</button>
+                    </div>
                   </div>
-                </div>
+                  {error && <p className="text-danger">{error}</p>}
+                  {success && <p className="text-success">{success}</p>}
+                </form>
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/*  <!-- Footer Start -->  */}
+      {/* <!-- Footer Start --> */}
       <footer className="footer section-padding section-bg">
         <div className="container">
           <div className="row">
@@ -36,7 +76,6 @@ function Footer() {
                 <div className="ft_about">
                   <div className="ft_logo">
                     <Link to="/">
-                      {" "}
                       <img
                         src={logo}
                         alt="logo"
@@ -87,9 +126,6 @@ function Footer() {
                   <li>
                     <Link to="/blog_grid">Blog</Link>
                   </li>
-                  {/* <li>
-                    <Link to="/Listing_Grid">Listings</Link>
-                  </li> */}
                   <li>
                     <Link to="#">FAQ's</Link>
                   </li>
@@ -148,7 +184,6 @@ function Footer() {
                       amanyarasoftech@gmail.com
                     </Link>
                   </li>
-
                   <li>
                     <Link to="#">
                       <i className="fas fa-map-marker-alt"></i>
@@ -162,7 +197,7 @@ function Footer() {
           </div>
         </div>
       </footer>
-      {/* <!-- Footer End -->*/}
+      {/* <!-- Footer End --> */}
 
       {/* <!-- Copyright Start --> */}
       <div className="thm-bg-color-one">

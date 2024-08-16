@@ -238,7 +238,7 @@ const sliderSettings = {
 };
 
 function Services() {
-  const [error, setError] = useState([]);
+  const [error, setError] = useState(null);
   const [services, setServices] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
 
@@ -257,7 +257,13 @@ function Services() {
         }
         return response.json();
       })
-      .then(data => setTestimonials(data))
+      .then(data => {
+        if (data && data.testimonials && Array.isArray(data.testimonials)) {
+          setTestimonials(data.testimonials);
+        } else {
+          throw new Error('Unexpected API response format');
+        }
+      })
       .catch(err => {
         console.error('Error fetching testimonials:', err);
         setError('Failed to load testimonials');
@@ -323,28 +329,36 @@ function Services() {
           </div>
           <div className="row testimonial_slider">
             <Slider {...sliderSettings}>
-              {testimonials.map((testimonial, index) => (
-                <div className="px-3 slide_item" key={index}>
-                  <div className="testimonial_item">
-                    <div className="author_image">
-                      <img
-                        src={testimonial.img}
-                        alt="img"
-                        className="image-fit"
-                      />
-                    </div>
-                    <div className="testimonial_text">
-                      <p className="comment">
-                        {testimonial.comment}
-                      </p>
-                      <div className="author_info">
-                        <h6 className="name mb-0">{testimonial.name}</h6>
-                        <p>{testimonial.location}</p>
+              {testimonials.length > 0 ? (
+                testimonials.map((testimonial) => (
+                  <div className="px-3 slide_item" key={testimonial.id}>
+                    <div className="testimonial_item">
+                      <div className="author_image">
+                        {/* <img
+                          src={`https://admin.amanyademo.in.net/api/uploads/${testimonial.testimonials_image}`}
+                          alt={testimonial.testimonials_name}
+                          className="image-fit"
+                        /> */}
+                        <img
+                          src={`https://admin.amanyademo.in.net/public/upload/${testimonial.testimonials_image}`}
+                          alt={testimonial.testimonials_name}
+                        />
+                      </div>
+                      <div className="testimonial_text">
+                        <p className="comment">
+                          {testimonial.testimonials_content}
+                        </p>
+                        <div className="author_info">
+                          <h6 className="name mb-0">{testimonial.testimonials_name}</h6>
+                          <p>{testimonial.testimonials_position}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                <p>{error || 'No testimonials available at the moment.'}</p>
+              )}
             </Slider>
           </div>
         </div>
@@ -355,4 +369,5 @@ function Services() {
 }
 
 export default Services;
+
 

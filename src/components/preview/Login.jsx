@@ -136,7 +136,7 @@ function Login() {
                       <div className="form-group">
                         <label>
                           Password{" "}
-                          <Link to="/forgot" className="thm-color-one">
+                          <Link to="/ForgotPassword" className="thm-color-one">
                             Forgot Password?
                           </Link>
                         </label>
@@ -197,39 +197,7 @@ function Login() {
         </div>
       </section>
 
-      <section className="newsletter_box down">
-        <div className="container">
-          <div className="section section-bg no-overlay">
-            <div className="section-header">
-              <h3 className="title">
-                Our <span>Newsletter</span>
-              </h3>
-              <p className="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
-              </p>
-            </div>
-            <div className="row justify-content-center">
-              <div className="col-lg-8 col-md-10">
-                <div className="input-group">
-                  <input
-                    type="email"
-                    name="#"
-                    className="form-control"
-                    placeholder="Enter Email Address"
-                    autoComplete="off"
-                    required
-                  />
-                  <div className="input-group-append">
-                    <button type="submit" className="thm-btn h-100">
-                      Subscribe
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     
     </>
   );
 }
