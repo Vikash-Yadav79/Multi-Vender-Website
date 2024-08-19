@@ -145,7 +145,7 @@ function Footer() {
                 <h5 className="ft_title">Company</h5>
                 <ul className="ft_menu">
                   <li>
-                    <Link to="/hotel">Shopping</Link>
+                    <Link to="/Listing_Grid">Shopping</Link>
                   </li>
                   <li>
                     <Link to="/Listing_Grid">Beauty</Link>
@@ -157,7 +157,7 @@ function Footer() {
                     <Link to="/Listing_Grid_Left">Food</Link>
                   </li>
                   <li>
-                    <Link to="/hotel">Hotels</Link>
+                    <Link to="/Listing_Grid_Right">Hotels</Link>
                   </li>
                   <li>
                     <Link to="/Listing_Grid">Travelling</Link>

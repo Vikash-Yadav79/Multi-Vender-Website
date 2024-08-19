@@ -1,0 +1,378 @@
+.accountant-page {
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.page-description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.accountants-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.accountant-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  padding: 16px;
+  width: calc(25% - 20px); /* Adjust based on your layout */
+}
+
+.accountant-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.accountant-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.accountant-info {
+  text-align: center;
+}
+
+.accountant-name {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.accountant-experience,
+.accountant-specialization {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.more-details-button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.more-details-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+
+/* Ac reapir Man css */
+
+.ac-repair-page {
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.page-description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.ac-repair-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.ac-repair-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  padding: 16px;
+  width: calc(25% - 20px); /* Adjust based on your layout */
+}
+
+.ac-repair-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.ac-repair-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.ac-repair-info {
+  text-align: center;
+}
+
+.ac-repair-name {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.ac-repair-experience,
+.ac-repair-specialization {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.more-details-button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.more-details-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+  /* DoctorPagecss */
+
+  .doctor-page {
+    padding: 2rem 1rem;
+    background-color: #f4f7fc;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #2c3e50;
+  }
+  
+  .page-description {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #7f8c8d;
+  }
+  
+  .doctor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .doctor-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .doctor-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .doctor-info {
+    padding: 1rem;
+  }
+  
+  .doctor-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+  }
+  
+  .doctor-experience,
+  .doctor-specialization {
+    font-size: 1rem;
+    color: #7f8c8d;
+  }
+  
+  /* CarPenter page css */
+
+  .carpenter-page {
+    padding: 2rem 1rem;
+    background-color: #f4f7fc;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #2c3e50;
+  }
+  
+  .page-description {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #7f8c8d;
+  }
+  
+  .carpenter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .carpenter-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .carpenter-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .carpenter-info {
+    padding: 1rem;
+  }
+  
+  .carpenter-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+  }
+  
+  .carpenter-experience,
+  .carpenter-specialization {
+    font-size: 1rem;
+    color: #7f8c8d;
+  }
+
+  /* plumber page css */
+  .plumber-page {
+    padding: 2rem 1rem;
+    background-color: #f4f7fc;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #2c3e50;
+  }
+  
+  .page-description {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #7f8c8d;
+  }
+  
+  .plumber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .plumber-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .plumber-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .plumber-info {
+    padding: 1rem;
+  }
+  
+  .plumber-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+  }
+  
+  .plumber-experience,
+  .plumber-specialization {
+    font-size: 1rem;
+    color: #7f8c8d;
+  }
+  /* AccountantDetailPage.css */
+.accountant-detail-page {
+  padding: 20px;
+}
+
+.accountant-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.accountant-name {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.accountant-experience,
+.accountant-specialization,
+.accountant-description {
+  margin-bottom: 10px;
+}
