@@ -1,34 +1,49 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function Home(props) {
-  const imageData = [
-    { img: props.exploreImages.exploreImg1, label: "Carpenter" },
-    { img: props.exploreImages.exploreImg2, label: "Plumber" },
-    { img: props.exploreImages.exploreImg3, label: "Accountant" },
-    { img: props.exploreImages.exploreImg4, label: "Doctor" },
-    { img: props.exploreImages.exploreImg5, label: "Mechanic" }
+  const navigate = useNavigate();
+
+  // Array of services with paths corresponding to the routes
+  const exploreServices = [
+    { img: props.exploreImages.exploreImg1, label: "Plumber", path: "/plumber" },
+    { img: props.exploreImages.exploreImg2, label: "Doctor", path: "/doctors" },
+    { img: props.exploreImages.exploreImg3, label: "Accountant", path: "/accountent" },
+    { img: props.exploreImages.exploreImg4, label: "AC Repair", path: "/acrepair" }
   ];
 
-  const renderImageSection = (images, sectionLabel) => (
+  const popularServices = exploreServices.slice(0, 3); // Select any 3 services for Popular Services
+
+  // Function to handle click and navigate to the corresponding page
+  const handleServiceClick = (path) => {
+    navigate(path);
+  };
+
+  const renderServiceSection = (services, sectionLabel) => (
     <div className={`section ${sectionLabel.toLowerCase()}`}>
       <div className="container">
         <div className="section-header">
-          <h3 className="title">{sectionLabel} <span>Services</span></h3>
+          <h3 className="title">
+            {sectionLabel} <span>Services</span>
+          </h3>
           <p className="text">Explore our top-rated services that clients love.</p>
         </div>
         <div className={`row ${sectionLabel.toLowerCase()}_slider`}>
           <Slider {...props.sliderSetting.exploreImagesSettings}>
-            {images.map((item, index) => (
+            {services.map((item, index) => (
               <div key={index} className="px-2 slide_item">
                 <div className="explore_box">
                   <div className="explore_image">
-                    <Link to="/Explore" className="d-flex h-100">
-                      <img src={item.img} alt="img" className="image-fit" />
-                    </Link>
+                    <div
+                      className="d-flex h-100"
+                      onClick={() => handleServiceClick(item.path)}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <img src={item.img} alt={item.label} className="image-fit" />
+                    </div>
                   </div>
                   <div className="explore_text">
                     <div className="rating">
@@ -39,7 +54,12 @@ function Home(props) {
                       <i className="bi-star"></i>
                     </div>
                     <h5 className="title">
-                      <Link to="/Explore">{item.label}</Link>
+                      <div
+                        onClick={() => handleServiceClick(item.path)}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        {item.label}
+                      </div>
                     </h5>
                   </div>
                 </div>
@@ -99,7 +119,7 @@ function Home(props) {
               </div>
             </div>
             <form className="row justify-content-center banner_form g-2">
-              {imageData.map((item, index) => (
+              {exploreServices.map((item, index) => (
                 <div key={index} className="col-auto">
                   <div className="form-group form-radio">
                     <input
@@ -125,10 +145,11 @@ function Home(props) {
         <span className="right_skew"></span>
       </div>
 
-      {/* Sections Rendering */}
-      {renderImageSection(imageData.slice(0, 4), "Explore")}
-      {renderImageSection(imageData.slice(0, 4), "Services")}
-      {renderImageSection(imageData, "Listings")}
+      {/* Explore Section - Showing 4 services */}
+      {renderServiceSection(exploreServices, "Explore")}
+
+      {/* Popular Services Section - Showing 3 services */}
+      {renderServiceSection(popularServices, "Popular")}
 
       {/* How It Works Section */}
       <section className="section-padding section-bg-fix section-how-it-works">
@@ -177,11 +198,8 @@ function Home(props) {
           </div>
         </div>
       </section>
-
     </>
   );
 }
 
 export default Home;
-
-

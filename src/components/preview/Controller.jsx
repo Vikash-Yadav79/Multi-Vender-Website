@@ -17,6 +17,15 @@ import Login from "./Login";
 import Contact from "./Contact";
 import Privacy_Policy from "./Privacy_Policy";
 import ForgotPassword from "./ForgotPassword";
+import AccountantManPage from "./AccountantManPage";
+import AcRepairManPage from "./AcRepairManPage";
+import DoctorManPage from "./DoctorManPage";
+import CarpenterManPage from "./CarpenterManPage";
+import PlumberManPage from "./PlumberManPage";
+import AccountantDetailsPage from "./AccountantDetailsPage";
+import AcRepairDetailPage from "./AcRepairDetailPage";
+import DoctorDetailPage from "./DoctorDetailPage";
+import PlumberDetailPage from "./PlumberDetailPage";
 
 
 /* explore section images */
@@ -25,13 +34,7 @@ import exploreImg2 from "./assest/images/explore/plumber.png";
 import exploreImg3 from "./assest/images/explore/accountant.png";
 import exploreImg4 from "./assest/images/explore/Doctor.png";
 import exploreImg5 from "./assest/images/explore/mechanic.png";
-import exploreImg6 from "./assest/images/explore/6.jpg";
-import exploreImg7 from "./assest/images/explore/7.jpg";
-import exploreImg8 from "./assest/images/explore/8.jpg";
-import exploreImg9 from "./assest/images/explore/9.jpg";
-import exploreImg10 from "./assest/images/explore/10.jpg";
-import exploreImg11 from "./assest/images/explore/11.jpg";
-import exploreImg12 from "./assest/images/explore/12.jpg";
+
 
 /* listings section images */
 import listingImg1 from "./assest/images/listings/1.jpg";
@@ -69,6 +72,7 @@ import galleryImg3 from "./assest/images/gallery/3.jpg";
 import galleryImg4 from "./assest/images/gallery/4.jpg";
 import galleryImg5 from "./assest/images/gallery/5.jpg";
 import galleryImg6 from "./assest/images/gallery/6.jpg";
+
 
 
 
@@ -178,52 +182,12 @@ function Controller() {
               />
             }
           />
-          <Route
-            path="/home"
-            element={
-              <Home
-                exploreImages={{
-                  exploreImg1,
-                  exploreImg2,
-                  exploreImg3,
-                  exploreImg4,
-                  exploreImg5,
-                }}
-                listingImages={{
-                  listingImg1,
-                  listingImg2,
-                  listingImg3,
-                  listingImg4,
-                  listingImg5,
-                  listingImg6,
-                }}
-                testimonialImages={{ testimonialImg1, testimonialImg2 }}
-                blogImages={{ blogImg1, blogImg2, blogImg3 }}
-                sliderSetting={{
-                  exploreImagesSettings,
-                  testmonialImagesSetting,
-                }}
-              />
-            }
-          />
+
           <Route
             path="/explore"
             element={
               <Explore
-                exploreImages={{
-                  exploreImg1,
-                  exploreImg2,
-                  exploreImg3,
-                  exploreImg4,
-                  exploreImg5,
-                  exploreImg6,
-                  exploreImg7,
-                  exploreImg8,
-                  exploreImg9,
-                  exploreImg10,
-                  exploreImg11,
-                  exploreImg12,
-                }}
+
               />
             }
           />
@@ -368,10 +332,22 @@ function Controller() {
               />
             }
           />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register/:type" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
-          <Route
+          <Route path="/accountent" element={<AccountantManPage />} />
+          <Route path="/acrepair" element={<AcRepairManPage />} />
+          <Route path="/doctors" element={<DoctorManPage />} />
+          <Route path="/plumber" element={<PlumberManPage />} />
+          <Route path="/carpenter" element={<CarpenterManPage />} />
+          <Route path="/accountant/:id" element={<AccountantDetailsPage />} />
+          <Route path="/acrepair/:id" element={<AcRepairDetailPage />} />
+          <Route path="/doctorDetails/:id" element={<DoctorDetailPage />} />
+          <Route path="/plumberDetail/:id" element={<PlumberDetailPage />} />
+
+
+
+          {/* <Route
             path="/services"
             element={
               <Services
@@ -379,7 +355,8 @@ function Controller() {
                 sliderSetting={testmonialImagesSetting}
               />
             }
-          />
+          /> */}
+          <Route path="/service/:id" element={<Services />} />
           <Route
             path="/contact"
             element={<Contact />}

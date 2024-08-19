@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Api from '../Api'
+import { Link, useNavigate, useParams } from "react-router-dom";
+import Api from '../Api';
 
 function Register() {
+  const { type } = useParams(); // Get the registration type from the URL
+  console.log('Register component type:', type); // Debug log
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,7 +12,6 @@ function Register() {
     gender: "",
     password: "",
   });
-  console.log(formData);
 
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -51,14 +52,34 @@ function Register() {
     }
 
     try {
-      const response = await Api.post("/create-service-provider", formData);
-      console.log("Registration successful:", response.data);
-      navigate("/login");
+      const apiEndpoint = type === "service-provider"
+        ? "/create-service-provider"
+        : "/create-user";
+
+      const response = await Api.post(apiEndpoint, formData);
+
+      // Assuming the response data is in the expected format
+      if (response.data.status === false) {
+        // Map errors to the appropriate fields or display them generically
+        const apiErrors = response.data.errors.reduce((acc, error) => {
+          // Customize this logic based on how you want to map errors to fields
+          if (error.includes("email")) acc.email = error;
+          if (error.includes("phone")) acc.phone = error;
+          // Add more mapping as needed
+          return acc;
+        }, {});
+
+        setErrors(apiErrors);
+      } else {
+        alert(response.data.message);
+        navigate("/login");
+      }
     } catch (error) {
-      console.error("Registration failed:", error);
+      console.error("Registration failed:", error.response?.data || error);
       setErrors({ apiError: "Registration failed. Please try again." });
     }
   };
+
 
   return (
     <>
@@ -66,7 +87,9 @@ function Register() {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h1 className="page-title">Register / SignUp</h1>
+              <h1 className="page-title">
+                Register as {type === "service-provider" ? "Service Provider" : "User"}
+              </h1>
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item">
@@ -87,7 +110,7 @@ function Register() {
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <div className="sign_in_up_box thm-bg-color-light">
-                <h3>SignUp</h3>
+                <h3>SignUp as {type === "service-provider" ? "Service Provider" : "User"}</h3>
                 <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-12">

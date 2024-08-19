@@ -7,6 +7,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [registerAs, setRegisterAs] = useState("");
   const navigate = useNavigate();
 
   const validate = () => {
@@ -45,13 +46,14 @@ function Login() {
           password,
         });
 
-        if (response.data.success) {
-          // Assuming the API returns a token in the response
-          const token = response.data.token;
+        if (response.data.status) {
+          const { access_token, ServiceProviders } = response.data;
+          const { usertype } = ServiceProviders; // Extract usertype from the response
 
-          // Store email and token in localStorage
+          // Store user details in local storage
           localStorage.setItem("userEmail", email);
-          localStorage.setItem("authToken", token);
+          localStorage.setItem("authToken", access_token);
+          localStorage.setItem("userRole", usertype); // Store user type
 
           console.log("Login successful, navigating to home page");
           navigate("/explore");
@@ -69,6 +71,11 @@ function Login() {
     }
   };
 
+
+  const handleRegisterClick = (role) => {
+    setRegisterAs(role);
+    navigate("/register", { state: { registerAs: role } });
+  };
 
   return (
     <>
@@ -100,16 +107,23 @@ function Login() {
                 <h3>Log In</h3>
                 <div className="row">
                   <div className="col-md-6">
-                    <button type="button" className="thm-btn w-100 mb-xl-30" >
-                      <i className="fab fa-facebook-f ms-0 me-4"></i>
-                      Login with Facebook
+                    <button
+                      type="button"
+                      className="thm-btn w-100 mb-xl-30"
+                      onClick={() => handleRegisterClick("Service Provider")}
+                    >
+                      <i className="fas fa-briefcase ms-0 me-4"></i>
+                      Login as a Service Provider
                     </button>
-
                   </div>
                   <div className="col-md-6">
-                    <button type="button" className="thm-btn w-100 mb-xl-30">
-                      <i className="fab fa-google ms-0 me-4"></i>
-                      Login with Google
+                    <button
+                      type="button"
+                      className="thm-btn w-100 mb-xl-30"
+                      onClick={() => handleRegisterClick("User")}
+                    >
+                      <i className="fas fa-user ms-0 me-4"></i>
+                      Login as a User
                     </button>
                   </div>
                 </div>
@@ -123,7 +137,7 @@ function Login() {
                           type="email"
                           name="email"
                           className="form-control form-control-custom"
-                          placeholder="Email I'd"
+                          placeholder="Email Id"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           autoComplete="off"
@@ -145,7 +159,7 @@ function Login() {
                           name="password"
                           className="form-control form-control-custom"
                           id="password_value"
-                          placeholder="password"
+                          placeholder="Password"
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
                           autoComplete="off"
@@ -184,9 +198,11 @@ function Login() {
                       </div>
                       <p className="mt-3 mb-0 text-center fw-500">
                         Don't have an account?{" "}
-                        <Link to="/register" className="thm-color-one">
-                          Register
+                        <Link to="/register/service-provider">
+                          Register as Service Provider
                         </Link>
+                        <p>or</p>
+                        <Link to="/register/user">Register as User</Link>
                       </p>
                     </div>
                   </div>
@@ -196,8 +212,6 @@ function Login() {
           </div>
         </div>
       </section>
-
-     
     </>
   );
 }
