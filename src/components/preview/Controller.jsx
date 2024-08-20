@@ -26,6 +26,8 @@ import AccountantDetailsPage from "./AccountantDetailsPage";
 import AcRepairDetailPage from "./AcRepairDetailPage";
 import DoctorDetailPage from "./DoctorDetailPage";
 import PlumberDetailPage from "./PlumberDetailPage";
+import ServiceProfessionalsPage from "./ServiceProfessionalsPage";
+import IndividualDetailPage from "./IndividualDetailPage";
 
 
 /* explore section images */
@@ -344,6 +346,8 @@ function Controller() {
           <Route path="/acrepair/:id" element={<AcRepairDetailPage />} />
           <Route path="/doctorDetails/:id" element={<DoctorDetailPage />} />
           <Route path="/plumberDetail/:id" element={<PlumberDetailPage />} />
+          <Route path="/service-professionals/:category" element={<ServiceProfessionalsPage />} />
+          <Route path="/individualdetail/:id" element={<IndividualDetailPage />} />
 
 
 
