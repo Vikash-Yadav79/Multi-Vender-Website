@@ -136,7 +136,7 @@ function Explore() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://amanyademo.in.net/e_vendor_app/api/get-all-service')
+    fetch('https://amanyademo.in.net/e_vendor_app/api/get-all-service-listing')
       .then(response => {
         console.log('Response Status:', response.status);
         console.log('Response URL:', response.url);
@@ -160,11 +160,11 @@ function Explore() {
         }
 
         // Check if `Services` is an array and not empty
-        if (!Array.isArray(data.Services)) {
+        if (!Array.isArray(data.ServicesListings)) {
           throw new Error('Expected `Services` to be an array');
         }
 
-        setServices(data.Services);
+        setServices(data.ServicesListings);
       })
       .catch(err => {
         console.error('Error fetching data:', err);
@@ -173,8 +173,8 @@ function Explore() {
   }, []);
 
   // Function to handle service click
-  const handleServiceClick = (id) => {
-    navigate(`/service/${id}`);
+  const handleServiceClick = (category) => {
+    navigate(`/service-professionals/${category}`);
   };
 
   return (
@@ -228,7 +228,7 @@ function Explore() {
                   <div className="explore_image">
                     <div
                       className="d-flex h-100"
-                      onClick={() => handleServiceClick(service.id)}
+                      onClick={() => handleServiceClick(service.job_profile)}
                       style={{ cursor: 'pointer' }}
                     >
                       <img

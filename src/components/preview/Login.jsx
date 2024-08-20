@@ -54,6 +54,9 @@ function Login() {
           localStorage.setItem("userEmail", email);
           localStorage.setItem("authToken", access_token);
           localStorage.setItem("userRole", usertype); // Store user type
+          localStorage.setItem("serviceProvidersProfile", JSON.stringify(response.data));
+          const test = JSON.parse(localStorage.getItem("serviceProvidersProfile"));
+          console.log(test)
 
           console.log("Login successful, navigating to home page");
           navigate("/explore");
