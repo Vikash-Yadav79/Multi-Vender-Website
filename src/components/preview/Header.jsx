@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -13,15 +12,16 @@ function Navbar() {
   const [userRole, setUserRole] = useState(""); // State to hold the user role
   const [username, setUsername] = useState(""); // State to hold the username
   const navigate = useNavigate(); // To redirect users after logout
+
+  // Safely retrieve the profile from local storage
   const login_profile = JSON.parse(localStorage.getItem("serviceProvidersProfile"));
-  const loginData = login_profile.ServiceProviders;
+  const loginData = login_profile ? login_profile.ServiceProviders : null;
+
   useEffect(() => {
     const role = localStorage.getItem("userRole");
     const email = localStorage.getItem("userEmail");
     setUserRole(role);
     setUsername(email ? email.split('@')[0] : ""); // Display only the part before '@'
-
-
   }, []);
 
   const handleClose = () => setShow(false);
@@ -35,7 +35,7 @@ function Navbar() {
 
   const [jobOptions, setJobOptions] = useState(options.sort());
   const [formData, setFormData] = useState({
-    user_id: loginData.id,
+    user_id: loginData ? loginData.id : "",
     catgory_id: "",
     job_profile: "",
     profile_image: ""
@@ -78,18 +78,20 @@ function Navbar() {
     }
   };
 
-
   const handleLogout = () => {
     // Clear user data from local storage
     localStorage.removeItem("userEmail");
     localStorage.removeItem("authToken");
     localStorage.removeItem("userRole");
+    localStorage.removeItem("serviceProvidersProfile"); // Clear the profile as well
+
+    // Clear state
+    setUsername("");
+    setUserRole("");
 
     // Redirect to login page
     navigate("/login");
   };
-
-
 
   return (
     <>
@@ -165,82 +167,79 @@ function Navbar() {
         </div>
       </nav>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Add Your Service Listing</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <input
-                type="text"
-
-                className="form-control"
-                placeholder="Your Name"
-                value={loginData.name}
-              // onChange={handleChange}
-
-              />
-
-            </div>
-            <div className="form-group">
-              <input
-                type="email"
-
-                className="form-control"
-                placeholder="Your Email"
-                value={loginData.email}
-                readOnly={true}
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-
-                className="form-control"
-                placeholder="Your Phone"
-                value={loginData.phone}
-                readOnly={true}
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                name="catgory_id"
-                className="form-control"
-                placeholder="Categories"
-                value={formData.catgory_id}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <select
-                name="job_profile"
-                className="form-control"
-                onChange={handleChange}
-                value={formData.job_profile}
-                required
-              >
-                <option value="">List Your Job Profile</option>
-                {jobOptions.map((item, index) => (
-                  <option value={item} key={index}>
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant="primary" type="submit">
-                Add
-              </Button>
-            </Modal.Footer>
-          </form>
-        </Modal.Body>
-      </Modal>
+      {loginData && (
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add Your Service Listing</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Your Name"
+                  value={loginData.name}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Your Email"
+                  value={loginData.email}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Your Phone"
+                  value={loginData.phone}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="catgory_id"
+                  className="form-control"
+                  placeholder="Categories"
+                  value={formData.catgory_id}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <select
+                  name="job_profile"
+                  className="form-control"
+                  onChange={handleChange}
+                  value={formData.job_profile}
+                  required
+                >
+                  <option value="">List Your Job Profile</option>
+                  {jobOptions.map((item, index) => (
+                    <option value={item} key={index}>
+                      {item}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" type="submit">
+                  Add
+                </Button>
+              </Modal.Footer>
+            </form>
+          </Modal.Body>
+        </Modal>
+      )}
     </>
   );
 }
