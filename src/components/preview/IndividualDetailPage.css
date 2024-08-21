@@ -1,0 +1,71 @@
+.doctor-detail-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.doctor-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.doctor-image-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.doctor-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.doctor-info {
+    text-align: center;
+}
+
+.doctor-name {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.doctor-experience,
+.doctor-specialization,
+.doctor-email,
+.doctor-phone,
+.doctor-gender {
+    font-size: 1.1em;
+    margin: 5px 0;
+    color: #555;
+}
+
+.doctor-info p {
+    margin: 5px 0;
+}
+
+.loading-spinner {
+    text-align: center;
+    font-size: 1.5em;
+    color: #007bff;
+}
+
+.error-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #dc3545;
+}

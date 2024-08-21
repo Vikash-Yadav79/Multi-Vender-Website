@@ -24,7 +24,7 @@ import CarpenterManPage from "./CarpenterManPage";
 import PlumberManPage from "./PlumberManPage";
 import AccountantDetailsPage from "./AccountantDetailsPage";
 import AcRepairDetailPage from "./AcRepairDetailPage";
-import DoctorDetailPage from "./DoctorDetailPage";
+// import DoctorDetailPage from "./DoctorDetailPage";
 import PlumberDetailPage from "./PlumberDetailPage";
 import ServiceProfessionalsPage from "./ServiceProfessionalsPage";
 import IndividualDetailPage from "./IndividualDetailPage";
@@ -344,7 +344,7 @@ function Controller() {
           <Route path="/carpenter" element={<CarpenterManPage />} />
           <Route path="/accountant/:id" element={<AccountantDetailsPage />} />
           <Route path="/acrepair/:id" element={<AcRepairDetailPage />} />
-          <Route path="/doctorDetails/:id" element={<DoctorDetailPage />} />
+          {/* <Route path="/doctorDetails/:id" element={<DoctorDetailPage />} /> */}
           <Route path="/plumberDetail/:id" element={<PlumberDetailPage />} />
           <Route path="/service-professionals/:category" element={<ServiceProfessionalsPage />} />
           <Route path="/individualdetail/:id" element={<IndividualDetailPage />} />

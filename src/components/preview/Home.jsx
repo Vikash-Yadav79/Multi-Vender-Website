@@ -343,7 +343,7 @@ function Home(props) {
                 </div>
               </div>
             </div>
-            <form className="row justify-content-center banner_form g-2">
+            {/* <form className="row justify-content-center banner_form g-2">
               {exploreServices.map((item, index) => (
                 <div key={index} className="col-auto">
                   <div className="form-group form-radio">
@@ -367,7 +367,33 @@ function Home(props) {
                   </div>
                 </div>
               ))}
+            </form> */}
+            <form className="row justify-content-center banner_form g-2">
+              {exploreServices.slice(0, 5).map((item, index) => (
+                <div key={index} className="col-auto">
+                  <div className="form-group form-radio">
+                    <input
+                      className="form-radio-input"
+                      type="radio"
+                      name="category"
+                      value={item.job_profile}
+                      id={`radio_${index}`}
+                    />
+                    <label className="form-radio-label" htmlFor={`radio_${index}`}>
+                      <div>
+                        <img
+                          src={`https://amanyademo.in.net/e_vendor_app/public/upload/${item.image}`}
+                          alt={item.job_profile}
+                          style={{ height: "100px" }}
+                        />
+                        <p className="mb-0 py-1">{item.job_profile}</p>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              ))}
             </form>
+
           </div>
         </div>
         <span className="left_skew"></span>
